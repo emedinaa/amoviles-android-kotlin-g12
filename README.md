@@ -26,6 +26,45 @@ output
 Hello Kotlin !
 ```
 
+- Comments
+
+```kotlin
+// Este es un comentario
+/*  Este es otro comentario  con 
+múltiples líneas */
+```
+- Variables
+
+```kotlin
+fun main(args:Array<String>){
+    var language:String= "Java"
+
+    println(language)
+
+    language="Kotlin"
+
+    println(language)
+
+    val age:Int = 18
+
+    println("Age : $age")
+
+    val message="Kotlin for Android Developers"
+
+    println("Message : $message")
+
+    //message="Java for Android Developers"
+}
+```
+
+output
+```
+Java
+Kotlin
+Age : 18
+Message : Kotlin for Android Developers
+```
+
 - Functions
 
 ```kotlin
@@ -104,37 +143,109 @@ Android : Kotlin
 Android : C++
 ```
 
-- Variables
+- Control Flow
+
+**Conditional expression**
 
 ```kotlin
-fun main(args:Array<String>){
-    var language:String= "Java"
+fun max(a: Int, b: Int) = if (a > b) a else b         // 1
+println(max(99, -42))
+```
+output
+```
+99
+```
 
-    println(language)
+**When** 
 
-    language="Kotlin"
+```kotlin
+class MyClass
 
-    println(language)
+fun cases(obj: Any) {
+    when (obj) {
+        1 -> println("One")                          // 1
+        "Hello" -> println("Greeting")               // 2
+        is Long -> println("Long")                   // 3
+        !is String -> println("Not a string")        // 4
+        else -> println("Unknown")                   // 5
+    }
+}
 
-    val age:Int = 18
-
-    println("Age : $age")
-
-    val message="Kotlin for Android Developers"
-
-    println("Message : $message")
-
-    //message="Java for Android Developers"
+fun main(args:Array<String>) {
+    cases("Hello")
+    cases(1)
+    cases(0L)
+    cases(MyClass())
+    cases("hello")
 }
 ```
 
 output
 ```
-Java
-Kotlin
-Age : 18
-Message : Kotlin for Android Developers
+Greeting
+One
+Long
+Not a string
+Unknown
 ```
+- Loops (for, while, do-while)
+
+**For**
+
+```kotlin
+fun main(args:Array<String>) {
+
+    //for
+    val jvmLanguages = listOf("Kotlin", "Java", "Groovy")
+    for (language in jvmLanguages) {                               // 1
+        println("Jvm language : $language")
+    }
+}
+```
+
+output
+```
+Jvm language : Kotlin
+Jvm language : Java
+Jvm language : Groovy
+```
+**while**
+
+```kolin
+  //while
+    var count=0
+    while (count<5){
+        println("count : $count")
+        count++
+    }
+```
+
+```
+count : 0
+count : 1
+count : 2
+count : 3
+count : 4
+```
+
+**do-while**
+
+```kotlin
+    //do - while
+    var i = 1
+    do{
+        println("item : $i")
+        i++
+    }while (i<5)
+```
+
+```
+item : 1
+item : 2
+item : 3
+item : 4
+```
+
 - Null Safety
 
 ```kotlin
@@ -305,108 +416,6 @@ Kotlin is a cool language!
 ```
 ---
 
-- Control Flow
-
-**Conditional expression**
-
-```kotlin
-fun max(a: Int, b: Int) = if (a > b) a else b         // 1
-println(max(99, -42))
-```
-output
-```
-99
-```
-
-**When** 
-
-```kotlin
-class MyClass
-
-fun cases(obj: Any) {
-    when (obj) {
-        1 -> println("One")                          // 1
-        "Hello" -> println("Greeting")               // 2
-        is Long -> println("Long")                   // 3
-        !is String -> println("Not a string")        // 4
-        else -> println("Unknown")                   // 5
-    }
-}
-
-fun main(args:Array<String>) {
-    cases("Hello")
-    cases(1)
-    cases(0L)
-    cases(MyClass())
-    cases("hello")
-}
-```
-
-output
-```
-Greeting
-One
-Long
-Not a string
-Unknown
-```
-- Loops (for, while, do-while)
-
-**For**
-
-```kotlin
-fun main(args:Array<String>) {
-
-    //for
-    val jvmLanguages = listOf("Kotlin", "Java", "Groovy")
-    for (language in jvmLanguages) {                               // 1
-        println("Jvm language : $language")
-    }
-}
-```
-
-output
-```
-Jvm language : Kotlin
-Jvm language : Java
-Jvm language : Groovy
-```
-**while**
-
-```kolin
-  //while
-    var count=0
-    while (count<5){
-        println("count : $count")
-        count++
-    }
-```
-
-```
-count : 0
-count : 1
-count : 2
-count : 3
-count : 4
-```
-
-**do-while**
-
-```kotlin
-    //do - while
-    var i = 1
-    do{
-        println("item : $i")
-        i++
-    }while (i<5)
-```
-
-```
-item : 1
-item : 2
-item : 3
-item : 4
-```
 ---
 ## Ejercicios
 
@@ -513,3 +522,6 @@ fun calcular(arr:IntArray){
 - Google codelabs https://codelabs.developers.google.com/
 - Android Studio https://developer.android.com/studio/install
 - Genymotion https://www.genymotion.com/account/create/
+- Kotlin https://kotlinlang.org/
+- Kotlin reference https://kotlinlang.org/docs/reference/
+- Get Started with Kotlin on Android https://developer.android.com/kotlin/get-started?hl=en
