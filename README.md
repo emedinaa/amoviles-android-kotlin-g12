@@ -4,7 +4,10 @@ Curso de Aplicaciones Android con Kotlin G12(Básico - Intermedio- Avanzado) - A
 
 ## Kotlin Fundamentals
 
-Slide https://docs.google.com/presentation/d/1wnqOdBUW7fF_2XOL7C5GUdNGgkd6PtVW7q269FmeNMU/edit?usp=sharing
+Slides :
+
+- Lesson2-Kotlin https://docs.google.com/presentation/d/1wnqOdBUW7fF_2XOL7C5GUdNGgkd6PtVW7q269FmeNMU/edit?usp=sharing
+- Lesson3-Kotlin https://docs.google.com/presentation/d/1rh5D1lO3pNDwg0QxtttPTpr848mzXQCryQiZFqyxpsg/edit?usp=sharing
 
 Lesson https://github.com/emedinaa/amoviles-android-kotlin-g12/archive/L2-Kotlin.zip
 
