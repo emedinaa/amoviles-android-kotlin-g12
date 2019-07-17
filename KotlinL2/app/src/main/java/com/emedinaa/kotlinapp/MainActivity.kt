@@ -1,5 +1,6 @@
 package com.emedinaa.kotlinapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,19 +9,25 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val  message= "Hello kotlin!"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        imageView.setOnClickListener {
-            Log.v("CONSOLE", message)
-            showMessage(message)
+        textView1.setOnClickListener {
+            goToActivity(CalculatorActivity::class.java)
+        }
+
+        textView2.setOnClickListener {
+            goToActivity(GalleryActivity::class.java)
+        }
+
+        textView2.setOnClickListener {
+            goToActivity(FormActivity::class.java)
         }
     }
 
-    private fun showMessage(message:String){
-        Toast.makeText(this, message,Toast.LENGTH_LONG).show()
+    private fun goToActivity(activity:Class<*>){
+        startActivity(Intent(this,activity))
     }
 }
