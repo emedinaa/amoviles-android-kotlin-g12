@@ -21,12 +21,8 @@ class GalleryActivity : AppCompatActivity() {
             R.drawable.sample_1,R.drawable.sample_2,R.drawable.sample_3,
             R.drawable.sample_4,R.drawable.sample_5,R.drawable.sample_6,
             R.drawable.sample_7)
-        //first image
-        firstImage()
-        //ui events
-        img.setOnClickListener {
-            nextImage()
-        }
+
+        //img.setImageResource(images[0])
     }
 
     private fun firstImage(){
@@ -37,14 +33,14 @@ class GalleryActivity : AppCompatActivity() {
 
     private fun nextImage(){
         count++
-        if(count>=images.size){
+        /*if(count>=images.size){
             count=0
-        }
+        }*/
         img.setImageResource(images[count])
         txtImg.text= "Imagen $count"
     }
 
     fun click_handler(view: View){
-        nextImage()
+        //nextImage()
     }
 }

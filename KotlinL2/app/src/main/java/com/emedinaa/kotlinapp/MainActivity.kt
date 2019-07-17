@@ -15,14 +15,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         textView1.setOnClickListener {
-            goToActivity(CalculatorActivity::class.java)
-        }
-
-        textView2.setOnClickListener {
             goToActivity(GalleryActivity::class.java)
         }
 
         textView2.setOnClickListener {
+            goToActivity(CalculatorActivity::class.java)
+        }
+
+        textView3.setOnClickListener {
             goToActivity(FormActivity::class.java)
         }
     }

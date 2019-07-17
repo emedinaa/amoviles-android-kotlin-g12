@@ -8,25 +8,26 @@
         android:orientation="vertical"
         android:padding="4dp"
         tools:context=".MainActivity">
+
     <TextView android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:padding="20dp"
-               android:layout_marginTop="100dp"
-              android:text="Calculator Activity"
+              android:text="Gallery Activity"
               android:textColor="@android:color/black"
-              android:textSize="20sp"
               android:background="#81d4fa"
-    android:id="@+id/textView1"/>
+              android:textSize="20sp"
+              android:layout_marginTop="100dp"
+              android:id="@+id/textView1"/>
 
     <TextView android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:padding="20dp"
               android:layout_marginTop="10dp"
-              android:text="Gallery Activity"
+              android:text="Calculator Activity"
               android:textColor="@android:color/black"
-              android:background="#81d4fa"
               android:textSize="20sp"
-              android:id="@+id/textView2"/>
+              android:background="#81d4fa"
+    android:id="@+id/textView2"/>
 
     <TextView android:layout_width="match_parent"
               android:layout_height="wrap_content"
