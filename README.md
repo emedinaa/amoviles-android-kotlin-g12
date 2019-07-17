@@ -4,9 +4,9 @@ Curso de Aplicaciones Android con Kotlin G12(Básico - Intermedio- Avanzado) - A
 
 ## Kotlin Fundamentals
 
-Slide https://docs.google.com/presentation/d/1AsYR8CfSQprW0SP5S-19kuREeD88_F8yB-quibEo3DM/edit?usp=sharing
+Slide https://docs.google.com/presentation/d/1wnqOdBUW7fF_2XOL7C5GUdNGgkd6PtVW7q269FmeNMU/edit?usp=sharing
 
-Lesson https://github.com/emedinaa/amoviles-android-kotlin-g12/archive/L1-Fundamentals.zip
+Lesson https://github.com/emedinaa/amoviles-android-kotlin-g12/archive/L2-Kotlin.zip
 
 ## Kotlin Language
 
@@ -405,196 +405,101 @@ item : 3
 item : 4
 ```
 ---
+## Ejercicios
 
-## Crear un proyecto Android con Kotlin
+- Hello World
 
-* Estructura de un proyecto Android
-
- *Revisar el proyecto que se encuentra en la carpeta temmplate/KotlinApp*
- 
- ```
-    KotlinApp
-        - build.gradle
-        - app
-            - build
-            - libs
-            - build.gradle
-            - src
-        - build
-        - gradle
- ```  
- 
-* Revisar el archivo **build.gradle** del proyecto
-```groovy
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-
-buildscript {
-    ext.kotlin_version = '1.2.61'
-    repositories {
-        google()
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.4'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-    }
-}
-
-allprojects {
-    repositories {
-        google()
-        jcenter()
-    }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
-
-ext {
-    // Sdk and tools
-    minSdkVersion = 15
-    targetSdkVersion = 28
-    compileSdkVersion = 28
-    buildToolsVersion = '28.0.0'
-    constraintLayoutVersion='1.1.3'
-
-    // App dependencies
-    supportLibraryVersion = '28.0.0'
-    junitVersion = '4.12'
-
-    //Test
-    runnerVersion='1.0.2'
-    espressoVersion='3.0.2'
+```kotlin
+fun main(args:Array<String>){
+    println("Hello Kotlin !")
 }
 ```
-* Revisar el archivo **build.gradle** de la app 
-    
-```groovy
-apply plugin: 'com.android.application'
 
-apply plugin: 'kotlin-android'
+output
+```
+Hello Kotlin !
+```
+Compilador online https://play.kotlinlang.org/
 
-apply plugin: 'kotlin-android-extensions'
+- Pide 2 números y muestra cual es el mayor, el menor, o si son iguales
+- Calcular el mayor de 2 números
+- Calcular el factorial de un número.
+- Dado 10 números , calcular el mayor y menor
+- Dado 10 números , calcular los múltiplos de 3
+- Mostrar la tabla de multiplicar del 1 al 10
+- Realizar un programa que nos pida un número n, y nos diga cuantos números hay entre 1 y n que son
+primos. 
+- Calcular el mayor de tres números enteros
+- Pide un número y muestra si es positivo o negativo y si es par o impar
+- Obtener el valor máximo y mínimo de un array de valores.
 
-android {
-    compileSdkVersion rootProject.ext.compileSdkVersion//28
-    defaultConfig {
-        applicationId "com.kotlin.samples.kotlinapp"
-        minSdkVersion rootProject.ext.minSdkVersion//15
-        targetSdkVersion rootProject.ext.targetSdkVersion//28
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-    }
+```kotlin
+ //Pide 2 números y muestra cual es el mayor, el menor, o si son iguales
+ 
+fun main(args:Array<String>){
+    println("Hello Kotlin !")
+    val num1= 5
+    val num2= 3
+    comparar(num1,num2)
 }
-
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
-    implementation "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
-    implementation "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
-    implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    testImplementation "junit:junit:$rootProject.junitVersion"
-    androidTestImplementation "com.android.support.test:runner:$rootProject.runnerVersion"
-    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
+fun comparar(v1:Int, v2:Int){
+    var message:String=""
+    if(v1>v2){
+        message= "v1 $v1 > v2 $v2" //
+    }else if(v1<v2){
+       message= "v1 $v1 < v2 $v2"  
+    }else{
+        message= "v1 $v1 = v2 $v2"  
+    }
+    println(message)
 }
 
 ```
- 
- * Creamos una actividad llamada EmptyActivity
- 
- ```kotlin
- package com.kotlin.samples.kotlinapp
 
-import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_empty.*
-
-class EmptyActivity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_empty)
-
-        imageView.setOnClickListener {
-            showMessage()
-        }
+```kotlin
+//Calcular el factorial de un número.
+fun main(args:Array<String>){
+    println("Hello Kotlin !")
+    //factorial 5 5x4x3x2x1 5*(5-1)*(5-2)*(5-3)*(5-4)
+   	val num=5
+    var factorial= 5
+    for(i in 1..(num-1)){// for(val i=1, i<5,i++){
+        //factorial = num*(num-i) 
+        factorial = factorial*(num-i) 
+        println( "$num x ($num - $i) = $num x ${num-i} factorial $factorial")
     }
-
-    private fun showMessage(){
-        Toast.makeText(this, "Hello Kotlin!", Toast.LENGTH_LONG).show()
-    }
+    println( "factorial $factorial")
+        //1 5*(5-1)
+        //2 5*(5-2)
+        //3 5*(5-3)
+        //4 5* ()5-4)
 }
 
- ```
-* En su layout "activity_empty.xml" copiamos los siguiente
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".EmptyActivity">
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_kotlin_android"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</android.support.constraint.ConstraintLayout>
 ```
 
-<img src="https://raw.githubusercontent.com/learning-android-pe/training-resources/master/kotlin/activity_empty.png"/>
+```kotlin
+//Obtener el valor máximo y mínimo de un array de valores.
+fun main(args:Array<String>){
+    //Obtener el valor máximo y mínimo de un array de valores //[3,5,2,1,7,8] max , min
+    println( "Hello kotlin")
+    val arr= intArrayOf(3,5,2,1,7,8)
+    calcular(arr)
+}
 
-* Actividades
+fun calcular(arr:IntArray){
+    var max=arr[0]
+    var min=arr[0]
+    // min > it min= it
+    arr.forEach{//i->
+        println("it $it - min :$min - max : $max")
+        if(min>it){ min=it }
+        if(max<it){ max= it}
+        println("nuevo min :$min / nuevo max : $max")
+    }
+    println(" min : $min - max : $max") //[3,5,2,1,7,8]
+}
 
-  * Crear un proyecto Android
-  * Crear un proyecto Android usando un template
-  * Crear una actividad llamada HomeActivity
-  * Crear un fragment llamado FragmentActivity
-  * Crear una clase java llamada User en src/main/package/model/User.java
-  * Agregar un color en res/values/colors.xml
-  * Agregar un string en res/values/strings.xml
-  * Agregar una dimension en res/values/dimens.xml
-  * Agregar una imagen en res/drawable/ic_android.png
-
-# Samples
-
-* KotlinSamples - Contiene los ejemplos sobre el lenguaje Kotlin (IntelliJ IDEA)
-* BasicSamples - Contiene ejemplos básicos de Android con Kotlin (Android Studio)
-    * GalleryActivity
-    * FormActivity
-    * CalculatorActivity
-
-# Homework
-
-**Android Studio**
-
-Crear un proyecto en Android Studio , luego realizar los cambios acorde al template entregado en clase (gradle).
+```
   
 # References 
 
