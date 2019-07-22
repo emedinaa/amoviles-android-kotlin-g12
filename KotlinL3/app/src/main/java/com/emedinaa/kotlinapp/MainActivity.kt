@@ -14,20 +14,5 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        textView1.setOnClickListener {
-            goToActivity(GalleryActivity::class.java)
-        }
-
-        textView2.setOnClickListener {
-            goToActivity(CalculatorActivity::class.java)
-        }
-
-        textView3.setOnClickListener {
-            goToActivity(FormActivity::class.java)
-        }
-    }
-
-    private fun goToActivity(activity:Class<*>){
-        startActivity(Intent(this,activity))
     }
 }
