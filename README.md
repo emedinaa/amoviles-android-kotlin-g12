@@ -10,7 +10,7 @@ Slides :
 
 - Lesson3-UI https://docs.google.com/presentation/d/19mzDJ2zvdz36uvwM3Pc_Ep0Y5V6_XxE0D6iL7CBv3NA/edit?usp=sharing
 
-Lesson https://github.com/emedinaa/amoviles-android-kotlin-g12/archive/L3-Kotlin.zip
+Lesson https://github.com/emedinaa/amoviles-android-kotlin-g12/archive/L3-UI.zip
 
 ## Kotlin Language
 
