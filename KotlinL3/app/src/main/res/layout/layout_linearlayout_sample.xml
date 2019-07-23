@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+android:background="#6FAFCD"
+>
+
+    <ImageView android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:src="@drawable/runkeeper_logo2"
+               android:adjustViewBounds="true"
+               android:paddingLeft="40dp"
+               android:paddingRight="40dp"
+               android:paddingTop="10dp"
+               android:paddingBottom="10dp"
+    android:background="@android:color/white"/>
+
+    <EditText android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:hint="Name"
+              android:textColorHint="@android:color/white"
+              android:layout_marginTop="20dp"
+              android:layout_marginLeft="10dp"
+              android:layout_marginRight="10dp"/>
+
+    <EditText android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:hint="Email"
+              android:textColorHint="@android:color/white"
+              android:layout_marginLeft="10dp"
+              android:layout_marginRight="10dp"/>
+
+    <EditText android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:hint="Password"
+              android:textColorHint="@android:color/white"
+              android:layout_marginBottom="20dp"
+              android:layout_marginLeft="10dp"
+              android:layout_marginRight="10dp"/>
+
+    <Button android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+    android:text="Sign Up"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+    android:background="@drawable/shape_btn"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="40dp"
+              android:background="#79B9D8"
+              android:padding="10dp"
+              android:textStyle="bold"
+              android:gravity="center"
+              android:textColor="@android:color/white"
+    android:text="Privacy Policy / Terms of Service"/>
+
+</LinearLayout>

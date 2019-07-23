@@ -15,7 +15,6 @@
     <color name="gray3">#444444</color>
     <color name="gray4">#DFDFDC</color>
     <color name="gray5">#A2A2A0</color>
-    <color name="black">#000000</color>
 
     <color name="gray">#F2F2F2</color>
     <color name="blue">#4B7BD7</color>
@@ -29,5 +28,32 @@
     <color name="blue_bg">#4F7BA0</color>
     <color name="gray_txt">#B0BEC9</color>
     <color name="blue_txt">#7293AC</color>
-    <color name="black60">#99000000</color>
+
+    <color name="black">#17202A</color>
+    <color name="black60">#9917202A</color>
+    <color name="black30">#4D17202A</color>
+
+    <!--
+    100% — FF
+    95% — F2
+    90% — E6
+    85% — D9
+    80% — CC
+    75% — BF
+    70% — B3
+    65% — A6
+    60% — 99
+    55% — 8C
+    50% — 80
+    45% — 73
+    40% — 66
+    35% — 59
+    30% — 4D
+    25% — 40
+    20% — 33
+    15% — 26
+    10% — 1A
+    5% — 0D
+    0% — 00
+    -->
 </resources>

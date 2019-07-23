@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         //setContentView(R.layout.layout_login_instagram_linear)
         //setContentView(R.layout.layout_login_instagram_relative)
         //setContentView(R.layout.layout_login_instragram_constraint)
+        //setContentView(R.layout.layout_colors)
 
     }
 }
