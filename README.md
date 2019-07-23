@@ -12,507 +12,192 @@ Slides :
 
 Lesson https://github.com/emedinaa/amoviles-android-kotlin-g12/archive/L3-UI.zip
 
-## Kotlin Language
+## UI
 
-- Hello World
+Interfaz de usuario en Android
 
-```kotlin
-fun main(args:Array<String>){
-    println("Hello Kotlin !")
-}
+ - Estructura de un elemento XML :
+  
+```
+    <?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin">
+    
+        <TextView android:text="Hello World!" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
 ```
 
-output
+  - ID :
+  
 ```
-Hello Kotlin !
-```
-
-- Comments
-
-```kotlin
-// Este es un comentario
-/*  Este es otro comentario  con 
-múltiples líneas */
-```
-- Variables
-
-```kotlin
-fun main(args:Array<String>){
-    var language:String= "Java"
-
-    println(language)
-
-    language="Kotlin"
-
-    println(language)
-
-    val age:Int = 18
-
-    println("Age : $age")
-
-    val message="Kotlin for Android Developers"
-
-    println("Message : $message")
-
-    //message="Java for Android Developers"
-}
-```
-
-output
-```
-Java
-Kotlin
-Age : 18
-Message : Kotlin for Android Developers
-```
-
-- Functions
-
-```kotlin
-fun showMessage(message: String): Unit {                               // 1
-    println(message)
-}
-```
-
-```kotlin
-fun showMessage2(message: String){                                    // 2
-    println(message)
-}
-```
-
-```kotlin
-fun showMessage(message:String, param:String="Parameter"){            // 3
-    println("message : $message param : $param")
-}
-```
-
-```kotlin
-fun area(base:Int, height:Int):Int{                                   // 4
-    return base*height
-}
-```
-
-```kotlin
-fun perimeter(base:Int, height:Int)=2*base+ 2*height                  // 5
-```
-
-```kotlin
-fun main(args:Array<String>){
-    showMessage("Hello Kotlin") //1
-    showMessage2("Hello Kotlin") //2
-    showMessage("Hello Kotlin","Leave Java")//3
-    println(area(10,20)) //4
-    println(perimeter(10,20)) //5
-
-}
-```
-
-output
-```
-Hello Kotlin
-Hello Kotlin
-message : Hello Kotlin param : Leave Java
-200
-60
-```
-
-- Functions / vararg parameters
-
-```kotlin
-fun printWithArgs(vararg languages:String){
-    for(item in languages){
-        println(item)
-    }
-}
-```
-
-```kotlin
-   printWithArgs("Java", "Kotlin", "Scala", "Groovy",
-            "Clojure")
-   printWithArgs("Java", "Kotlin", "C++", param = "Android")
-```
-
-output
-```
-Java
-Kotlin
-Scala
-Groovy
-Clojure
-Android : Java
-Android : Kotlin
-Android : C++
-```
-
-- Control Flow
-
-**Conditional expression**
-
-```kotlin
-fun max(a: Int, b: Int) = if (a > b) a else b         // 1
-println(max(99, -42))
-```
-output
-```
-99
-```
-
-**When** 
-
-```kotlin
-class MyClass
-
-fun cases(obj: Any) {
-    when (obj) {
-        1 -> println("One")                          // 1
-        "Hello" -> println("Greeting")               // 2
-        is Long -> println("Long")                   // 3
-        !is String -> println("Not a string")        // 4
-        else -> println("Unknown")                   // 5
-    }
-}
-
-fun main(args:Array<String>) {
-    cases("Hello")
-    cases(1)
-    cases(0L)
-    cases(MyClass())
-    cases("hello")
-}
-```
-
-output
-```
-Greeting
-One
-Long
-Not a string
-Unknown
-```
-- Loops (for, while, do-while)
-
-**For**
-
-```kotlin
-fun main(args:Array<String>) {
-
-    //for
-    val jvmLanguages = listOf("Kotlin", "Java", "Groovy")
-    for (language in jvmLanguages) {                               // 1
-        println("Jvm language : $language")
-    }
-}
-```
-
-output
-```
-Jvm language : Kotlin
-Jvm language : Java
-Jvm language : Groovy
-```
-**while**
-
-```kolin
-  //while
-    var count=0
-    while (count<5){
-        println("count : $count")
-        count++
-    }
+      android:id="@+id/img"
 ```
 
 ```
-count : 0
-count : 1
-count : 2
-count : 3
-count : 4
+      <TextView
+            android:id="@+id/txtImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medium Text"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+```
+    
+  - Atributos :
+    
+```
+        android:layout_width="300dp"
+```
+    
+  - En el código podemos invocar a los elementos XML de la siguiente manera :
+  
+```
+      @Override
+      protected void onCreate(Bundle savedInstanceState) {
+          super.onCreate(savedInstanceState);
+          setContentView(R.layout.activity_main);
+      }
+```
+    
+```
+     private ImageView img;
+     private Button btnImg;
+     private TextView txtImg;
+
+     img= (ImageView)findViewById(R.id.img);
+     btnImg= (Button)findViewById(R.id.butImg);
+     txtImg = (TextView)findViewById(R.id.txtImg);
 ```
 
-**do-while**
+Layouts
 
-```kotlin
-    //do - while
-    var i = 1
-    do{
-        println("item : $i")
-        i++
-    }while (i<5)
+<img src="https://developer.android.com/images/layoutparams.png?hl=es-419?raw=true" height="320" />
+
+- LinearLayout
+
+<img src="https://github.com/learning-android-pe/training-resources/blob/master/ui/linearlayout.png?raw=true" height="300"/>
+
+Horizontal / Vertical
+
+<img src="https://github.com/learning-android-pe/training-resources/blob/master/samples/ui/layout-linear-horizontal.png?raw=true" height="360"/>  <img src="https://github.com/learning-android-pe/training-resources/blob/master/samples/ui/layout-linear-vertical.png?raw=true" height="360"/>
+
+Pesos
+
+<img src="https://github.com/learning-android-pe/training-resources/blob/master/samples/ui/layout-linear-weight-horizontal.png?raw=true" height="360" />  <img src="https://github.com/learning-android-pe/training-resources/blob/master/samples/ui/layou-linear-weight-vertical.png?raw=true" height="360" />
+
+- RelativeLayout
+
+<img src="https://github.com/learning-android-pe/training-resources/blob/master/ui/relativelayout.png?raw=true" height="300" />
+
+- ConstraintLayout
+
+<img src="https://github.com/learning-android-pe/training-resources/blob/master/ui/constraint-fail_2x.png?raw=true" height="300" /> <img src="https://github.com/learning-android-pe/training-resources/blob/master/ui/constraint-fail-fixed_2x.png?raw=true" height="300" />
+
+- ListView & GridView
+
+<img src="https://developer.android.com/images/ui/listview.png?hl=es-419" height="300"/> <img src="https://developer.android.com/images/ui/gridview.png?hl=es-419" height="300"/>
+
+### Layout resources 
+
+- Box Model 
+
+![img](http://porterwebsites.com/wp-content/uploads/2016/10/boxmodel-image.png)
+
+- Margin / Padding
+
+<img src="https://github.com/learning-android-pe/training-resources/blob/master/ui/box-margin.png?raw=true" height="320" />   <img src="https://github.com/learning-android-pe/training-resources/blob/master/ui/box-padding.png?raw=true" height="320"/>
+
+- Hexadecimal colors
+
+Podemos usar este web para buscar colores en hexadecimal
+http://www.color-hex.com/
+
+Android utiliza los colores en formato Hexadecimal , por ejemplo este valor representa el color 'negro'
+
+```java
+    #000000
+```
+Para manejar la transparencia, agregamos uno de estos valores adelante del color. Por ejemplo, si queremos un color 'negro' con 70% de transparencia :
+
+```java
+    #B3000000
 ```
 
-```
-item : 1
-item : 2
-item : 3
-item : 4
-```
+En esta tabla están todos los valores de 0-100 para la transparencia de colores
 
-- Null Safety
+```java
 
-```kotlin
-fun main(args:Array<String>){
-    println("Null Safety!")
-
-    var byeNull: String = "No puede ser null"
-    //byeNull= null
-
-    var nullable: String?="Puede ser null"
-    nullable= null
-
-    var neverNull= "No puede ser null"
-    //neverNull= null
-
-    println("byeNull : $byeNull")
-    println("nullable : $nullable")
-    println("neverNull : $neverNull")
-}
-```
-
-output
-```
-Null Safety!
-byeNull : No puede ser null
-nullable : null
-neverNull : No puede ser null
-```
-
-- Working with nulls
-
-```kotlin
-fun main(args:Array<String>){
-    println("Null Safety!")
-
-    var byeNull: String = "No puede ser null"
-    //byeNull= null
-
-    var nullable: String?="Puede ser null"
-    nullable= null
-
-    var neverNull= "No puede ser null"
-    //neverNull= null
-
-    println("byeNull : $byeNull")
-    println("nullable : $nullable")
-    println("neverNull : $neverNull")
-
-    //working with null
-
-    //nullable="Esta variable no es null"
-
-    if(nullable!=null){
-        println("Not null (if) : $nullable")
-    }
-
-    println("Not null length (?) : ${ nullable?.length }")
-
-    nullable?.let {
-        println("Not null length (let) :${nullable?.length}")
-    }?: run {
-        println("Not null length (run) : 0")
-    }
-}
-```
-
-output
-```
-Null Safety!
-byeNull : No puede ser null
-nullable : null
-neverNull : No puede ser null
-Not null length (?) : null
-Not null length (run) : 0
-```
-
-```
-Null Safety!
-byeNull : No puede ser null
-nullable : null
-neverNull : No puede ser null
-Not null (if) : Esta variable no es null
-Not null length (?) : 24
-Not null length (let) :24
-
-```
-
-- Classes
-
-```kotlin
-
-class Language()
-
-class JVMLanguage(val id:Int, val name:String)
-
-class JavaLanguage(val id:Int , var nullable:Boolean)
-
-fun main(args:Array<String>) {
-    println("Classes!")
-
-    val language= Language()
-    println("language $language")
-
-    val jvmLanguage= JVMLanguage(0,"Kotlin")
-
-    println("jvmLanguage $jvmLanguage")
-    println("jvmLanguage ${jvmLanguage.id}  & ${jvmLanguage.name}")
-
-    //jvmLanguage.id=1
-    //jvmLanguage.name="Java"
-
-    val javaLanguage= JavaLanguage(1,false)
-    println("javaLanguage ${javaLanguage.id}  & ${javaLanguage.nullable}")
-    javaLanguage.nullable=true
-
-    println("javaLanguage ${javaLanguage.id}  & ${javaLanguage.nullable}")
-
-}
-```
-
-output
-```
-Classes!
-language Language@5e2de80c
-jvmLanguage JVMLanguage@1d44bcfa
-jvmLanguage 0  & Kotlin
-javaLanguage 1  & false
-javaLanguage 1  & true
-```
-
-- Inheritance
-
-```kotlin
-open class ObsoleteLanguage(){
-    open fun sayHello() {       // 2
-        println("I'm bored...")
-    }
-}
-
-open class AwesomeLanguage(val message:String){
-    open fun showMessage(){
-        println(message)
-    }
-}
-
-
-class JavaOLanguage:ObsoleteLanguage(){
-    override fun sayHello() {
-        println("I'm an obsolete language")
-    }
-}
-
-class KotlinAwesomeLanguage(message:String):AwesomeLanguage(message)
-
-fun main(args:Array<String>) {
-    val obsoleteLanguage: ObsoleteLanguage = JavaOLanguage()
-    obsoleteLanguage.sayHello()
-
-    val awesomeLanguage:AwesomeLanguage= KotlinAwesomeLanguage("Kotlin is a cool language!")
-    awesomeLanguage.showMessage()
-}
-```
-
-output
-```
-I'm an obsolete language
-Kotlin is a cool language!
-```
----
-
----
-## Ejercicios
-
-- Hello World
-
-```kotlin
-fun main(args:Array<String>){
-    println("Hello Kotlin !")
-}
-```
-
-output
-```
-Hello Kotlin !
-```
-Compilador online https://play.kotlinlang.org/
-
-- Pide 2 números y muestra cual es el mayor, el menor, o si son iguales
-- Calcular el mayor de 2 números
-- Calcular el factorial de un número.
-- Dado 10 números , calcular el mayor y menor
-- Dado 10 números , calcular los múltiplos de 3
-- Mostrar la tabla de multiplicar del 1 al 10
-- Realizar un programa que nos pida un número n, y nos diga cuantos números hay entre 1 y n que son
-primos. 
-- Calcular el mayor de tres números enteros
-- Pide un número y muestra si es positivo o negativo y si es par o impar
-- Obtener el valor máximo y mínimo de un array de valores.
-
-```kotlin
- //Pide 2 números y muestra cual es el mayor, el menor, o si son iguales
- 
-fun main(args:Array<String>){
-    println("Hello Kotlin !")
-    val num1= 5
-    val num2= 3
-    comparar(num1,num2)
-}
-fun comparar(v1:Int, v2:Int){
-    var message:String=""
-    if(v1>v2){
-        message= "v1 $v1 > v2 $v2" //
-    }else if(v1<v2){
-       message= "v1 $v1 < v2 $v2"  
-    }else{
-        message= "v1 $v1 = v2 $v2"  
-    }
-    println(message)
-}
+    100% — FF
+    95% — F2
+    90% — E6
+    85% — D9
+    80% — CC
+    75% — BF
+    70% — B3
+    65% — A6
+    60% — 99
+    55% — 8C
+    50% — 80
+    45% — 73
+    40% — 66
+    35% — 59
+    30% — 4D
+    25% — 40
+    20% — 33
+    15% — 26
+    10% — 1A
+    5% — 0D
+    0% — 00
 
 ```
 
-```kotlin
-//Calcular el factorial de un número.
-fun main(args:Array<String>){
-    println("Hello Kotlin !")
-    //factorial 5 5x4x3x2x1 5*(5-1)*(5-2)*(5-3)*(5-4)
-   	val num=5
-    var factorial= 5
-    for(i in 1..(num-1)){// for(val i=1, i<5,i++){
-        //factorial = num*(num-i) 
-        factorial = factorial*(num-i) 
-        println( "$num x ($num - $i) = $num x ${num-i} factorial $factorial")
-    }
-    println( "factorial $factorial")
-        //1 5*(5-1)
-        //2 5*(5-2)
-        //3 5*(5-3)
-        //4 5* ()5-4)
-}
+- Shapes 
+Estos componentes te permiten dibujar formas , sin necesidad de usar recursos de diseño (imágenes) , puedes realizar cuadrados, círculos y elementos con bordes redondeados.
 
+Por ejemplo, si requerimos crear un rectángulo con un color sólido de fondo :
+```java
+    <?xml version="1.0" encoding="utf-8"?>
+    <shape xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:shape="rectangle" >
+
+    <solid android:color="#58A023" />
+    </shape>
 ```
 
-```kotlin
-//Obtener el valor máximo y mínimo de un array de valores.
-fun main(args:Array<String>){
-    //Obtener el valor máximo y mínimo de un array de valores //[3,5,2,1,7,8] max , min
-    println( "Hello kotlin")
-    val arr= intArrayOf(3,5,2,1,7,8)
-    calcular(arr)
-}
+Ahora, si necesitamos agregarle bordes redondeandos
 
-fun calcular(arr:IntArray){
-    var max=arr[0]
-    var min=arr[0]
-    // min > it min= it
-    arr.forEach{//i->
-        println("it $it - min :$min - max : $max")
-        if(min>it){ min=it }
-        if(max<it){ max= it}
-        println("nuevo min :$min / nuevo max : $max")
-    }
-    println(" min : $min - max : $max") //[3,5,2,1,7,8]
-}
+```java
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/blueskye"></solid>
+    <corners android:radius="10dp"></corners>
 
+</shape>
 ```
+Resultado :
+
+<img src="/images/shape1.png" />
+
+### Samples
+
+En el directorio de este proyecto contamos con los proyectos
+
+- LogInSample
+
+- UISamples
+
+<img src="https://github.com/emedinaa/amoviles-android-basic-intermediate/blob/Lesson3/images/logIn_sample2.png" height="480"> <img src="https://github.com/emedinaa/amoviles-android-basic-intermediate/blob/Lesson3/images/login_sample3.png" height="480">
+
+<img src="https://github.com/emedinaa/amoviles-android-basic-intermediate/blob/Lesson3/images/login_sample4.png" height="480"> <img src="https://github.com/emedinaa/amoviles-android-basic-intermediate/blob/Lesson3/images/relative_sample.png" height="480">
+
+<img src="https://github.com/emedinaa/amoviles-android-basic-intermediate/blob/Lesson3/images/constraint_layout_sample.png" height="480">
+
+y la carpeta "exercises" , donde encontrarán ejercicios que pueden realizar relacionados a UI y Layouts.
   
 # References
 
