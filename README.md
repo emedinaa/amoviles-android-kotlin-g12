@@ -14,7 +14,55 @@ Lesson https://github.com/emedinaa/amoviles-android-kotlin-g12/archive/L4-UIEven
 
 Eventos 
 
-  
+```kotlin
+  private fun showMessage(msg: String?) {
+      Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+  }
+  btn.setOnClickListener {
+      showMessage("Click")
+  }
+```
+
+Eventos de Teclado
+
+```kotlin
+eteUsername.addTextChangedListener(object : TextWatcher {
+          override fun afterTextChanged(s: Editable?) {
+              Log.v("CONSOLE", "afterTextChanged ${s.toString()}")
+          }
+
+          override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+              Log.v("CONSOLE", "beforeTextChanged ${s.toString()}")
+          }
+
+          override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+              Log.v("CONSOLE", "onTextChanged ${s.toString()}")
+          }
+
+})
+
+etePassword.setOnEditorActionListener { _, actionId, event ->
+            if ((event != null && (event.keyCode == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
+                send()
+            }
+            false
+}
+```
+Eventos de Selección
+
+```kotlin
+spLocation.onItemSelectedListener= object: AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+
+            override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, i: Int, l: Long) {
+                location= adapterView?.adapter?.getItem(i).toString()
+                showMessage("Item selected i : $i  value : $location")
+            }
+}
+```
+
 # References
 
 - Android Jetpack https://developer.android.com/jetpack/?hl=es-419
