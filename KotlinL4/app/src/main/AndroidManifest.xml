@@ -9,21 +9,19 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".MainDialogActivity">
+        </activity>
         <activity android:name=".MainActivity">
-
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-
         </activity>
-
-        <activity android:name=".BasicEventsActivity" />
-        <activity android:name=".KeyboardEventsActivity" />
-        <activity android:name=".FormActivity" />
-        <activity android:name=".ItemEventsActivity" />
+        <activity android:name=".BasicEventsActivity"/>
+        <activity android:name=".KeyboardEventsActivity"/>
+        <activity android:name=".FormActivity"/>
+        <activity android:name=".ItemEventsActivity"/>
     </application>
 
 </manifest>

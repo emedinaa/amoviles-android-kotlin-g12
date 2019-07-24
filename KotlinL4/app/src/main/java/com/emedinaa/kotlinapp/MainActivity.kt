@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnForm.setOnClickListener {
-            goToForm()
+            //goToForm()
         }
 
         btnItems.setOnClickListener {
@@ -27,6 +27,10 @@ class MainActivity : AppCompatActivity() {
 
         btnKeyboard.setOnClickListener {
             goToKeyboardEvents()
+        }
+
+        btnDialogs.setOnClickListener {
+            goToDialog()
         }
     }
 
@@ -47,5 +51,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun goToKeyboardEvents() {
         startActivity(Intent(this, KeyboardEventsActivity::class.java))
+    }
+
+
+    private fun goToDialog() {
+        startActivity(Intent(this, MainDialogActivity::class.java))
     }
 }

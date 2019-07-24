@@ -30,8 +30,17 @@
     <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Dialogs"
+            android:layout_marginBottom="5dp"
+            android:id="@+id/btnDialogs"/>
+
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Form Example"
             android:layout_marginBottom="5dp"
             android:id="@+id/btnForm"/>
+
+
 
 </LinearLayout>
