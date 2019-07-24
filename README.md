@@ -63,6 +63,53 @@ spLocation.onItemSelectedListener= object: AdapterView.OnItemSelectedListener {
 }
 ```
 
+Diálogos
+
+Invocar un dialog
+
+```kotlin
+btnDialog.setOnClickListener {
+    showSimpleDialog()
+}
+
+private fun showSimpleDialog() {
+    val dialog = SimpleDialog()
+    dialog.show(supportFragmentManager, "SimpleDialog")
+}
+```
+
+SimpleDialog
+
+```kotlin
+class SimpleDialog:DialogFragment() {
+
+    private lateinit var mContext:Context
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val builder = AlertDialog.Builder(mContext)
+
+        builder.setTitle("Aviso !")
+            .setMessage(R.string.dialog_fire_missiles)
+            .setPositiveButton(R.string.fire) { _, _ ->
+                log("Dialog aceptar")
+            }
+            .setNegativeButton(R.string.scancel){ _, _ ->
+                log("Dialog cancelar")
+            }
+        return builder.create()
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        mContext= context
+    }
+
+    private fun log(message: String) {
+        Log.d("CONSOLE", message)
+    }
+}
+```
+
 # References
 
 - Android Jetpack https://developer.android.com/jetpack/?hl=es-419
