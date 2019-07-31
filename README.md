@@ -6,9 +6,13 @@ Curso de Aplicaciones Android con Kotlin G12(Básico - Intermedio- Avanzado) - A
 
 Slides :
 
-- Lesson3-UI https://docs.google.com/presentation/d/19mzDJ2zvdz36uvwM3Pc_Ep0Y5V6_XxE0D6iL7CBv3NA/edit?usp=sharing
+List&Adapters https://docs.google.com/presentation/d/1aA6tzgdWVRNcv-PXYxFY47jdaJLQpt5LVMZuxmj4gdY/edit?usp=sharing
 
-Lesson https://github.com/emedinaa/amoviles-android-kotlin-g12/archive/L4-UIEvents.zip
+RecyclerView https://docs.google.com/presentation/d/13bbzEcgmTos_TQXAf9tTm4LdGw9_8gHgVLF9JlCIWrI/edit?usp=sharing
+
+Activities https://docs.google.com/presentation/d/1uhTfdRihh-LUa-Id541RM8FdhiC23XUEiyGTA1gTUTY/edit?usp=sharing
+
+Lesson https://github.com/emedinaa/amoviles-android-kotlin-g12/archive/L5-RecyclerViewAdapters.zip
 
 ## UI
 
