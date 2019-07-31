@@ -2,7 +2,7 @@
 Curso de Aplicaciones Android con Kotlin G12(Básico - Intermedio- Avanzado) - Academia Móviles 
 
 
-## Kotlin Fundamentals
+## Kotlin RecyclerView & Adapters
 
 Slides :
 
