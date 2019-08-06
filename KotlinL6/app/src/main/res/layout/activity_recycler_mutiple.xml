@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         tools:context=".RecyclerMutipleActivity">
     <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewPokemon"
+            android:id="@+id/recyclerViewMutiple"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginRight="0dp"

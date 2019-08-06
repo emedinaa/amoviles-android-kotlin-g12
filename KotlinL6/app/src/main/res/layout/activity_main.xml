@@ -9,7 +9,7 @@
     <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mutiple RecyclerView"
+            android:text="Multiple RecyclerView"
             android:layout_marginBottom="5dp"
             android:id="@+id/btn1"/>
 
