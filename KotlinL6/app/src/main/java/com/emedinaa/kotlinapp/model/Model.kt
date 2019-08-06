@@ -25,3 +25,5 @@ class MovieEntity(val id:Int, val title:String,val desc:String, val price:Double
     override fun isPlace()= false
     override fun isMovie()= true
 }
+
+class Receipt(val id:Int, val title:String, val desc:String,val favorite:Boolean):Serializable

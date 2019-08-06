@@ -19,27 +19,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         btn2.setOnClickListener {
+            goToView(ReceiptsActivity::class.java)
         }
 
-        btn3.setOnClickListener {
-
-        }
-
-        btn4.setOnClickListener {
-
-        }
-
-        btn5.setOnClickListener {
-
-        }
-
-        btn6.setOnClickListener {
-
-        }
-
-        btn7.setOnClickListener {
-
-        }
     }
 
     private fun goToView(activity:Class<*>) {

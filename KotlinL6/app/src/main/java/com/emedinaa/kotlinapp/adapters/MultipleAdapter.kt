@@ -19,7 +19,7 @@ import com.emedinaa.kotlinapp.model.PlaceEntity
 class MultipleAdapter(val context:Context, val mTypeList:List<MTypeEntity>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val inflater= LayoutInflater.from(parent?.context)
+        val inflater= LayoutInflater.from(parent.context)
 
         return when (viewType) {
             MOVIE -> {

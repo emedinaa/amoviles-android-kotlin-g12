@@ -9,50 +9,15 @@
     <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Simple List"
+            android:text="Mutiple RecyclerView"
             android:layout_marginBottom="5dp"
             android:id="@+id/btn1"/>
 
     <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Simple Grid"
+            android:text="Receipt RecyclerView"
             android:layout_marginBottom="5dp"
             android:id="@+id/btn2"/>
-
-    <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Movie List"
-            android:layout_marginBottom="5dp"
-            android:id="@+id/btn3"/>
-
-    <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Movie Grid"
-            android:layout_marginBottom="5dp"
-            android:id="@+id/btn4"/>
-
-    <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="People List"
-            android:layout_marginBottom="5dp"
-            android:id="@+id/btn5"/>
-
-    <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Product List"
-            android:layout_marginBottom="5dp"
-            android:id="@+id/btn6"/>
-
-    <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="RecyclerView"
-            android:layout_marginBottom="5dp"
-            android:id="@+id/btn7"/>
 
 </LinearLayout>
