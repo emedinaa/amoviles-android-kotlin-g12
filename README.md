@@ -2,33 +2,22 @@
 Curso de Aplicaciones Android con Kotlin G12(Básico - Intermedio- Avanzado) - Academia Móviles 
 
 
-## Kotlin RecyclerView Samples
+## Kotlin Fragments
 
 Slides :
 
-List&Adapters https://docs.google.com/presentation/d/1aA6tzgdWVRNcv-PXYxFY47jdaJLQpt5LVMZuxmj4gdY/edit?usp=sharing
+Fragments https://docs.google.com/presentation/d/1C0dRsJ5y7HYesuPGiNTpLl45AZlNm_v671WQ9LZ_j18/edit?usp=sharing
 
-RecyclerView https://docs.google.com/presentation/d/13bbzEcgmTos_TQXAf9tTm4LdGw9_8gHgVLF9JlCIWrI/edit?usp=sharing
-
-Activities https://docs.google.com/presentation/d/1uhTfdRihh-LUa-Id541RM8FdhiC23XUEiyGTA1gTUTY/edit?usp=sharing
-
-Lesson https://github.com/emedinaa/amoviles-android-kotlin-g12/archive/L5-RecyclerViewAdapters.zip
+Lesson https://github.com/emedinaa/amoviles-android-kotlin-g12/archive/L7-Fragments.zip
 
 
 # References
 
-- Adapter https://developer.android.com/reference/android/widget/Adapter.html
+- Support different screen sizes  https://developer.android.com/training/multiscreen/screensizes?hl=es-419
 
-- ListView https://developer.android.com/guide/topics/ui/layout/listview.html
+- Fragment https://developer.android.com/reference/android/app/Fragment.html
 
-- GridView https://developer.android.com/guide/topics/ui/layout/gridview.html
+- Developer Guides : Fragments https://developer.android.com/guide/components/fragments.html
 
-- RecyclerView https://developer.android.com/guide/topics/ui/layout/recyclerview.html
+- Building a Dynamic UI with Fragments https://developer.android.com/training/basics/fragments/index.html
 
-- Creating List and Cards https://developer.android.com/training/material/lists-cards.html
-
-- RecyclerView https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html
-
-- Android Developers Fundamentals Course - Create a RecyclerView https://google-developer-training.gitbooks.io/android-developer-fundamentals-course-practicals/content/en/Unit%202/44_p_create_a_recycler_view.html
-
-- RecyclerView samples https://github.com/emedinaa/android-recyclerview-and-adapters
