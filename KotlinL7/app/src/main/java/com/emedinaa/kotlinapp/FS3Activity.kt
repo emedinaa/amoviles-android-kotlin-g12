@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.emedinaa.kotlinapp.R
+import com.emedinaa.kotlinapp.fragments.FragmentS3
 
-class FS3Activity : AppCompatActivity() {
-//class FS3Activity : AppCompatActivity() ,FragmentS3.OnFragmentInteractionListener{
+class FS3Activity : AppCompatActivity() , FragmentS3.OnFragmentInteractionListener{
 
 
     /*
@@ -19,7 +19,7 @@ class FS3Activity : AppCompatActivity() {
         setContentView(R.layout.activity_fs3)
     }
 
-    /*override fun callParent(message: String?) {
+    override fun callParent(message: String?) {
         Toast.makeText(this,message,Toast.LENGTH_LONG).show()
-    }*/
+    }
 }

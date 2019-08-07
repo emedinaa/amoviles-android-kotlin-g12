@@ -22,6 +22,5 @@ class FS1Activity : AppCompatActivity() {
 
         fragmentS1?.changeColor("#AED581")
         //fragmentS1?.changeColor("#FFCA28")
-
     }
 }

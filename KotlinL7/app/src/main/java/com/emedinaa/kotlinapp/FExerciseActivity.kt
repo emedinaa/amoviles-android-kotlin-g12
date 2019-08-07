@@ -6,8 +6,9 @@ import androidx.fragment.app.FragmentManager
 import com.emedinaa.kotlinapp.R
 import com.emedinaa.kotlinapp.fragments.BottomBarFragment
 import com.emedinaa.kotlinapp.fragments.BoxFragment
+import com.emedinaa.kotlinapp.listeners.ColorListener
 
-class FExerciseActivity : AppCompatActivity() {
+class FExerciseActivity : AppCompatActivity() , ColorListener{
 
     private lateinit var fragmentManager: FragmentManager
     private var  bottomBarFragment: BottomBarFragment?=null
@@ -26,5 +27,9 @@ class FExerciseActivity : AppCompatActivity() {
         if (fragmentManager.findFragmentById(R.id.fragBox) is BoxFragment) {
             boxFragment= fragmentManager.findFragmentById(R.id.fragBox) as BoxFragment
         }
+    }
+
+    override fun onColorSelected(color: Int) {
+        boxFragment?.paintBox(color)
     }
 }

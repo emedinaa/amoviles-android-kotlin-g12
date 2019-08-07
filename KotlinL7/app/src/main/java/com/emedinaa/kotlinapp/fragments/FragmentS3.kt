@@ -1,7 +1,6 @@
 package com.emedinaa.kotlinapp.fragments
 
 import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,21 +9,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.emedinaa.kotlinapp.R
 
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Activities that contain this fragment must implement the
- * [F2Fragment.OnFragmentInteractionListener] interface
- * to handle interaction events.
- * Use the [F2Fragment.newInstance] factory method to
- * create an instance of this fragment.
- *
- */
 class FragmentS3 : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -43,7 +30,6 @@ class FragmentS3 : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
         val v=inflater.inflate(R.layout.fragment_fragment_s3, container, false)
         textView= v.findViewById(R.id.textView)
         return v
@@ -55,7 +41,7 @@ class FragmentS3 : Fragment() {
         if (context is OnFragmentInteractionListener) {
             listener = context
         } else {
-            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
+            throw RuntimeException("$context must implement OnFragmentInteractionListener")
         }
     }
 
@@ -70,31 +56,12 @@ class FragmentS3 : Fragment() {
             listener?.callParent("Action from Fragment!")
         }
     }
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     *
-     *
-     * See the Android Training lesson [Communicating with Other Fragments]
-     * (http://developer.android.com/training/basics/fragments/communicating.html)
-     * for more information.
-     */
+
     interface OnFragmentInteractionListener {
         fun callParent(message:String?)//"Action from Fragment!"
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment F2Fragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
                 FragmentS3().apply {
