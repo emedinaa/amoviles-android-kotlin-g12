@@ -1,32 +1,24 @@
 package com.emedinaa.kotlinapp.fragments
 
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-
+import android.widget.TextView
 import com.emedinaa.kotlinapp.R
-import kotlinx.android.synthetic.main.fragment_box.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [BoxFragment.newInstance] factory method to
- * create an instance of this fragment.
- *
- */
-class BoxFragment : Fragment() {
+class FragmentS3 : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var listener: OnFragmentInteractionListener? = null
+
+    private var textView:TextView?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,28 +30,41 @@ class BoxFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_box, container, false)
+        val v=inflater.inflate(R.layout.fragment_fragment_s3, container, false)
+        textView= v.findViewById(R.id.textView)
+        return v
     }
 
-    /*override fun onAttach(context: Context) {
+
+    override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is FragmentS3.OnFragmentInteractionListener) {
+        if (context is OnFragmentInteractionListener) {
             listener = context
         } else {
-            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
+            throw RuntimeException("$context must implement OnFragmentInteractionListener")
         }
     }
 
     override fun onDetach() {
         super.onDetach()
         listener = null
-    }*/
+    }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        textView?.setOnClickListener {
+            listener?.callParent("Action from Fragment!")
+        }
+    }
+
+    interface OnFragmentInteractionListener {
+        fun callParent(message:String?)//"Action from Fragment!"
+    }
 
     companion object {
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-                BoxFragment().apply {
+                FragmentS3().apply {
                     arguments = Bundle().apply {
                         putString(ARG_PARAM1, param1)
                         putString(ARG_PARAM2, param2)

@@ -8,8 +8,7 @@ import com.emedinaa.kotlinapp.fragments.ShowMessageFragment
 import com.emedinaa.kotlinapp.fragments.WriteMessageFragment
 import com.emedinaa.kotlinapp.listeners.MessageListener
 
-//class FCommunicationActivity : AppCompatActivity(), MessageListener {
-class FCommunicationActivity : AppCompatActivity() {
+class FCommunicationActivity : AppCompatActivity(), MessageListener {
 
     private lateinit var fragmentManager: FragmentManager
     private var  writeMessageFragment: WriteMessageFragment?=null
@@ -21,16 +20,16 @@ class FCommunicationActivity : AppCompatActivity() {
 
         fragmentManager = supportFragmentManager
 
-       /* if (fragmentManager.findFragmentById(R.id.fragmentWriteMessage) is WriteMessageFragment) {
+        if (fragmentManager.findFragmentById(R.id.fragmentWriteMessage) is WriteMessageFragment) {
             writeMessageFragment= fragmentManager.findFragmentById(R.id.fragmentWriteMessage) as WriteMessageFragment
         }
 
         if (fragmentManager.findFragmentById(R.id.fragmentShowMessage) is ShowMessageFragment) {
             showMessageFragment= fragmentManager.findFragmentById(R.id.fragmentShowMessage) as ShowMessageFragment
-        }*/
+        }
     }
 
-   /* override fun recibiryEnviardesdeFragment(message: String?) {
+    override fun recibiryEnviardesdeFragment(message: String?) {
         showMessageFragment?.mostrarMensaje(message)
-    }*/
+    }
 }

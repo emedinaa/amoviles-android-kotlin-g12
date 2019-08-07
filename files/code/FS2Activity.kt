@@ -18,12 +18,11 @@ class FS2Activity : AppCompatActivity() {
 
         fragmentManager= supportFragmentManager
         if(savedInstanceState==null){
-            //addFragment()
+            addFragment()
         }
-
-        /*button.setOnClickListener {
+        button.setOnClickListener {
             fragmentS2.changeText("Hello FragmentS2!")
-        }*/
+        }
         //fragmentS2.changeText("Hello FragmentS2!")
     }
 

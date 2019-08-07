@@ -56,6 +56,18 @@ class BoxFragment : Fragment() {
     }*/
 
 
+    fun paintBox(option:Int){
+        Log.v("CONSOLE", "BoxFragment $option")
+
+        val color = when(option){
+            0 -> Color.parseColor("#CC2EFA")
+            1 ->  Color.parseColor("#FE2E2E")
+            2 -> Color.parseColor("#F7FE2E")
+            else -> 0
+        }
+        flayBox.setBackgroundColor(color)
+    }
+
     companion object {
         @JvmStatic
         fun newInstance(param1: String, param2: String) =

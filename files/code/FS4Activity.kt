@@ -17,12 +17,12 @@ class FS4Activity : AppCompatActivity() {
         setContentView(R.layout.activity_fs4)
 
         fragmentManager= supportFragmentManager
-        /*if(fragmentManager.findFragmentById(R.id.fragment) is FragmentS4){
+        if(fragmentManager.findFragmentById(R.id.fragment) is FragmentS4){
             fragment= fragmentManager.findFragmentById(R.id.fragment) as FragmentS4
-        }*/
+        }
 
-        /*button.setOnClickListener {
+        button.setOnClickListener {
             fragment?.showMessage("Action from Activity!")
-        }*/
+        }
     }
 }

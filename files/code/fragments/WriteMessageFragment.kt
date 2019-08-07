@@ -1,32 +1,32 @@
 package com.emedinaa.kotlinapp.fragments
 
+
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import android.widget.Button
 
 import com.emedinaa.kotlinapp.R
-import kotlinx.android.synthetic.main.fragment_box.*
+import com.emedinaa.kotlinapp.listeners.MessageListener
+import android.widget.EditText
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [BoxFragment.newInstance] factory method to
- * create an instance of this fragment.
- *
- */
-class BoxFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+
+class WriteMessageFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
+
+    private var listener: MessageListener? = null
+
+    private var eteMessage: EditText? = null
+    private var btnSend: Button? = null
+    private var message: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,28 +38,39 @@ class BoxFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_box, container, false)
+        return inflater.inflate(R.layout.fragment_write_message, container, false)
     }
 
-    /*override fun onAttach(context: Context) {
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        eteMessage = view?.findViewById<View>(R.id.eteMessage) as EditText
+        btnSend = view?.findViewById<View>(R.id.btnSend) as Button
+
+        btnSend?.setOnClickListener {
+            message= eteMessage?.text.toString().trim()
+            listener?.recibiryEnviardesdeFragment(message)
+        }
+    }
+
+    override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is FragmentS3.OnFragmentInteractionListener) {
+        if (context is MessageListener) {
             listener = context
         } else {
-            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
+            throw RuntimeException(context.toString() + " must implement MessageListener")
         }
     }
 
     override fun onDetach() {
         super.onDetach()
         listener = null
-    }*/
-
+    }
 
     companion object {
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-                BoxFragment().apply {
+                WriteMessageFragment().apply {
                     arguments = Bundle().apply {
                         putString(ARG_PARAM1, param1)
                         putString(ARG_PARAM2, param2)

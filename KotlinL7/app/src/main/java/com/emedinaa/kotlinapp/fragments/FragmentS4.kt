@@ -35,10 +35,10 @@ class FragmentS4 : Fragment() {
         return v
     }
 
-    fun showMessage(message:String?){
+    /*fun showMessage(message:String?){
         Toast.makeText(activity,message,Toast.LENGTH_LONG).show()
         frameLayout?.setBackgroundColor(Color.parseColor("#FFEB3B"))
-    }
+    }*/
 
     companion object {
         @JvmStatic

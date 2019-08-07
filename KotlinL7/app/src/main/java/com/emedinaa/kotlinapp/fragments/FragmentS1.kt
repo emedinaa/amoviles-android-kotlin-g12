@@ -32,11 +32,11 @@ class FragmentS1 : Fragment() {
         return  v
     }
 
-    fun changeColor(color:String?){
+    /*fun changeColor(color:String?){
         color?.let {
-            frameLayout?.setBackgroundColor(Color.parseColor(color))
+            frameLayout?.setBackgroundColor(Color.parseColor(it))
         }
-    }
+    }*/
 
     companion object {
         @JvmStatic

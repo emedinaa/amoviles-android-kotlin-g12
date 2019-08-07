@@ -61,13 +61,6 @@ class ShowMessageFragment : Fragment() {
         resultMessage = ""
     }
 
-    fun mostrarMensaje(message: String?) {
-        Log.v(TAG, " $message")
-        if (TextUtils.isEmpty(message)) return
-
-        resultMessage="$resultMessage \n  $message"
-        tviMessage?.text=resultMessage
-    }
 
     companion object {
         val TAG:String="CONSOLE"

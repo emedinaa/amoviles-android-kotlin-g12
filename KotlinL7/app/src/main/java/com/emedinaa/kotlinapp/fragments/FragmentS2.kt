@@ -34,9 +34,9 @@ class FragmentS2 : Fragment() {
         return  v
     }
 
-    fun changeText(message:String?){
+    /*fun changeText(message:String?){
         textView?.text= message
-    }
+    }*/
 
     companion object {
         @JvmStatic

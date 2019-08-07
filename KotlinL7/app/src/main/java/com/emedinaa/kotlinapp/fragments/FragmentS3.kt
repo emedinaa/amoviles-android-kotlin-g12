@@ -16,7 +16,7 @@ class FragmentS3 : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private var listener: OnFragmentInteractionListener? = null
+    //private var listener: OnFragmentInteractionListener? = null
 
     private var textView:TextView?=null
 
@@ -38,28 +38,28 @@ class FragmentS3 : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is OnFragmentInteractionListener) {
+        /*if (context is OnFragmentInteractionListener) {
             listener = context
         } else {
             throw RuntimeException("$context must implement OnFragmentInteractionListener")
-        }
+        }*/
     }
 
     override fun onDetach() {
         super.onDetach()
-        listener = null
+        //listener = null
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        textView?.setOnClickListener {
+        /*textView?.setOnClickListener {
             listener?.callParent("Action from Fragment!")
-        }
+        }*/
     }
 
-    interface OnFragmentInteractionListener {
+    /*interface OnFragmentInteractionListener {
         fun callParent(message:String?)//"Action from Fragment!"
-    }
+    }*/
 
     companion object {
         @JvmStatic

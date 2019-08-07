@@ -22,7 +22,7 @@ class WriteMessageFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-    private var listener: MessageListener? = null
+    //private var listener: MessageListener? = null
 
     private var eteMessage: EditText? = null
     private var btnSend: Button? = null
@@ -44,27 +44,20 @@ class WriteMessageFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        eteMessage = view?.findViewById<View>(R.id.eteMessage) as EditText
-        btnSend = view?.findViewById<View>(R.id.btnSend) as Button
-
-        btnSend?.setOnClickListener {
-            message= eteMessage?.text.toString().trim()
-            listener?.recibiryEnviardesdeFragment(message)
-        }
     }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is MessageListener) {
-            listener = context
+            //listener = context
         } else {
-            throw RuntimeException(context.toString() + " must implement MessageListener")
+            throw RuntimeException("$context must implement MessageListener")
         }
     }
 
     override fun onDetach() {
         super.onDetach()
-        listener = null
+        //listener = null
     }
 
     companion object {
