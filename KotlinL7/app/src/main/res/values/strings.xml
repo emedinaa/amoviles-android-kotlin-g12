@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">Kotlin L7</string>
-
-    <string name="fragment_s1">Fragment S1</string>
-    <string name="fragment_s2">Fragment S2</string>
-    <string name="fragment_s3">Fragment S3</string>
-    <string name="fragment_s4">Fragment S4</string>
-</resources>
