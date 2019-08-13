@@ -54,6 +54,18 @@ class BottomBarFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        btnBox0.setOnClickListener {
+            listener?.onColorSelected(0)
+        }
+
+        btnBox1.setOnClickListener {
+            listener?.onColorSelected(1)
+        }
+
+        btnBox2.setOnClickListener {
+            listener?.onColorSelected(2)
+        }
+
     }
 
   companion object {

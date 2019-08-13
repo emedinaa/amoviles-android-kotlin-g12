@@ -55,6 +55,15 @@ class BoxFragment : Fragment() {
         listener = null
     }*/
 
+    fun paintColor(position: Int){
+        val color = when(position) {
+            0 -> Color.parseColor("#CC2EFA")//#CC2EFA
+            1 -> Color.parseColor("#FE2E2E") //#FE2E2E
+            2 -> Color.parseColor("#F7FE2E") //#F7FE2E
+            else -> 0
+        }
+        flayBox.setBackgroundColor(color)
+    }
 
     companion object {
         @JvmStatic

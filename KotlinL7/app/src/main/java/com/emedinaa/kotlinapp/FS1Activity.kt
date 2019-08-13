@@ -16,11 +16,12 @@ class FS1Activity : AppCompatActivity() {
         setContentView(R.layout.activity_fs1)
         fragmentManager= supportFragmentManager
 
-        /*if(fragmentManager.findFragmentById(R.id.fragment) is FragmentS1){
+        if(fragmentManager.findFragmentById(R.id.fragment) is FragmentS1){
             fragmentS1= fragmentManager.findFragmentById(R.id.fragment) as FragmentS1
-        }*/
+        }
 
         //fragmentS1?.changeColor("#AED581")
         //fragmentS1?.changeColor("#FFCA28")
+        fragmentS1?.showMessage("Hello Fragment")
     }
 }

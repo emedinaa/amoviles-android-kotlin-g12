@@ -61,6 +61,10 @@ class ShowMessageFragment : Fragment() {
         resultMessage = ""
     }
 
+    fun showMessage(message: String?) {
+        resultMessage = resultMessage.plus("\n").plus(message)
+        tviMessage?.text = resultMessage
+    }
 
     companion object {
         val TAG:String="CONSOLE"

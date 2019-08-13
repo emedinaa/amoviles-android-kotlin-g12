@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.emedinaa.kotlinapp.R
 
@@ -32,11 +33,15 @@ class FragmentS1 : Fragment() {
         return  v
     }
 
-    /*fun changeColor(color:String?){
+    fun changeColor(color:String?){
         color?.let {
             frameLayout?.setBackgroundColor(Color.parseColor(it))
         }
-    }*/
+    }
+
+    fun showMessage(message: String) {
+        //
+    }
 
     companion object {
         @JvmStatic
