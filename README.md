@@ -2,34 +2,26 @@
 Curso de Aplicaciones Android con Kotlin G12(Básico - Intermedio- Avanzado) - Academia Móviles 
 
 
-## Kotlin Navigation
+## Kotlin Storage Options
 
 Slides :
 
-Fragments navigation https://docs.google.com/presentation/d/1C0dRsJ5y7HYesuPGiNTpLl45AZlNm_v671WQ9LZ_j18/edit?usp=sharing
+Storage Options https://docs.google.com/presentation/d/14voZIOVSiHzuG_z0K1p1Ufu811I03HH8QpHF9CoZ6JE/edit?usp=sharing
 
-Lesson https://github.com/emedinaa/amoviles-android-kotlin-g12/archive/L8-Navigation.zip
+Lesson https://github.com/emedinaa/amoviles-android-kotlin-g12/archive/L9-StorageI.zip
 
 
 # References
 
-- Support different screen sizes  https://developer.android.com/training/multiscreen/screensizes?hl=es-419
+- Opciones de almacenamiento https://developer.android.com/guide/topics/data/data-storage
 
-- Fragment https://developer.android.com/reference/android/app/Fragment.html
+- SharedPreferences https://developer.android.com/training/data-storage/shared-preferences
 
-- Developer Guides : Fragments https://developer.android.com/guide/components/fragments.html
+- SQLite https://developer.android.com/training/data-storage/sqlite
 
-- Building a Dynamic UI with Fragments https://developer.android.com/training/basics/fragments/index.html
+- Room https://developer.android.com/training/data-storage/room
 
-- Material Design https://material.io/design/components/bottom-navigation.html#behavior
+- Android Room codelab https://codelabs.developers.google.com/codelabs/android-room-with-a-view-kotlin/#0
 
-- Activity https://developer.android.com/training/basics/firstapp/starting-activity?hl=es-419
-
-- Bottom Navigation https://material.io/develop/android/components/bottom-navigation-view/
-
-- View Pager https://developer.android.com/training/animation/screen-slide
-
-- Navigation drawer https://developer.android.com/training/implementing-navigation/nav-drawer?hl=es-419
-
-- Swipe & Tabs https://developer.android.com/training/implementing-navigation/lateral?hl=es-419
+- Android Persistence codelab https://codelabs.developers.google.com/codelabs/android-persistence/#0
 
