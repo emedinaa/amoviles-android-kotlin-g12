@@ -1,4 +1,4 @@
-package com.emedinaa.kotlinapp
+package com.emedinaa.kotlinapp.sp
 
 import android.content.Context
 import android.content.SharedPreferences

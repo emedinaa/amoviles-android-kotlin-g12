@@ -1,9 +1,8 @@
-package com.emedinaa.kotlinapp
+package com.emedinaa.kotlinapp.sp
 
 import android.os.Bundle
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
-import com.emedinaa.kotlinapp.PreferencesHelper
 import com.emedinaa.kotlinapp.R
 import java.util.*
 import kotlin.concurrent.timerTask
@@ -23,8 +22,8 @@ class SplashActivity : AppCompatActivity() {
 
         timer.schedule(timerTask {
             //goToLogIn()
-            verifySession()
-        },SPLASH_TIME)
+            //verifySession()
+        }, SPLASH_TIME)
     }
 
     private fun goToLogIn(){
@@ -37,12 +36,13 @@ class SplashActivity : AppCompatActivity() {
     private fun verifySession(){
 
         val session = PreferencesHelper.isSignedIn(this@SplashActivity)
-        intent = if (session) {
-            Intent(this@SplashActivity, DashboardActivity::class.java)
+        val mIntent = if (session) {
+            //Intent(this@SplashActivity, DashboardActivity::class.java)
+            null
         } else {
-            Intent(this@SplashActivity, LogInActivity::class.java)
+            null
         }
-        startActivity(intent)
-        finish()
+        //startActivity(mIntent)
+        //finish()
     }
 }

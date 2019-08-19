@@ -1,9 +1,10 @@
-package com.emedinaa.kotlinapp
+package com.emedinaa.kotlinapp.sp
 
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.emedinaa.kotlinapp.R
 
 import kotlinx.android.synthetic.main.activity_sp.*
 
@@ -16,14 +17,14 @@ class SPActivity : AppCompatActivity(),SharedPreferences.OnSharedPreferenceChang
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sp)
-        setUpSp()
+        //setUpSp()
         ui()
     }
 
     private fun setUpSp(){
-        mSharedPreferences= getSharedPreferences("com.kotlin.samples.kotlinapp.sp",
-                Context.MODE_PRIVATE)
-        //Context.MODE_APPEND
+        mSharedPreferences= getSharedPreferences("com.emedinaa.kotlinapp.sp",
+                Context.MODE_PRIVATE) //Context.MODE_APPEND
+
         mSharedPreferencesEditor= mSharedPreferences.edit()
     }
 
@@ -31,11 +32,11 @@ class SPActivity : AppCompatActivity(),SharedPreferences.OnSharedPreferenceChang
         textView.text=""
 
         buttonSave.setOnClickListener {
-            saveParameters()
+            //saveParameters()
         }
 
         buttonClear.setOnClickListener {
-            clearParameters()
+            //clearParameters()
         }
     }
 
@@ -68,13 +69,13 @@ class SPActivity : AppCompatActivity(),SharedPreferences.OnSharedPreferenceChang
 
     override fun onResume() {
         super.onResume()
-        mSharedPreferences.registerOnSharedPreferenceChangeListener(this)
+        //mSharedPreferences.registerOnSharedPreferenceChangeListener(this)
 
-        renderParameters()
+        //renderParameters()
     }
 
     override fun onPause() {
         super.onPause()
-        mSharedPreferences.unregisterOnSharedPreferenceChangeListener(this)
+        //mSharedPreferences.unregisterOnSharedPreferenceChangeListener(this)
     }
 }

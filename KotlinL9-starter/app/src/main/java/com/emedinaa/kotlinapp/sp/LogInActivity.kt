@@ -1,11 +1,9 @@
-package com.emedinaa.kotlinapp
+package com.emedinaa.kotlinapp.sp
 
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_log_in.*
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
-import com.emedinaa.kotlinapp.DashboardActivity
-import com.emedinaa.kotlinapp.PreferencesHelper
 import com.emedinaa.kotlinapp.R
 
 
@@ -24,36 +22,26 @@ class LogInActivity : AppCompatActivity() {
         username = eteUsername.text.toString()
         password = etePassword.text.toString()
 
-        if (username.isNullOrEmpty()) {
-            eteUsername.error = "Error campo username"
-            return false
-        }
-        if (password.isNullOrEmpty()) {
-            etePassword.error = "Error campo password"
-            return false
-        }
-        return true
+        return false
     }
 
     private fun gotoMain() {
-        savePreferences()
+        /*savePreferences()
         val intent = Intent(this, DashboardActivity::class.java)
         startActivity(intent)
-        finish()
+        finish()*/
     }
 
     private fun savePreferences() {
-        username?.let {
-            PreferencesHelper.saveSession(this, it)
-        }
+        //  PreferencesHelper.saveSession(this, it)
     }
 
     private fun ui(){
         btnLogin.setOnClickListener {
-            if(validateForm()){
+            /*if(validateForm()){
                 savePreferences()
                 gotoMain()
-            }
+            }*/
         }
 
     }

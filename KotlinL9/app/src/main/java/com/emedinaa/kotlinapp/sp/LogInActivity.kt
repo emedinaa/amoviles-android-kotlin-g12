@@ -1,11 +1,9 @@
-package com.emedinaa.kotlinapp
+package com.emedinaa.kotlinapp.sp
 
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_log_in.*
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
-import com.emedinaa.kotlinapp.DashboardActivity
-import com.emedinaa.kotlinapp.PreferencesHelper
 import com.emedinaa.kotlinapp.R
 
 
