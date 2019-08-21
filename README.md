@@ -8,7 +8,7 @@ Slides :
 
 Storage Options https://docs.google.com/presentation/d/14voZIOVSiHzuG_z0K1p1Ufu811I03HH8QpHF9CoZ6JE/edit?usp=sharing
 
-Lesson https://github.com/emedinaa/amoviles-android-kotlin-g12/archive/L9-StorageI.zip
+Lesson https://github.com/emedinaa/amoviles-android-kotlin-g12/archive/L10-StorageII.zip
 
 
 # References
