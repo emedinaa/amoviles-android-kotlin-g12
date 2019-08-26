@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.emedinaa.kotlinapp.R
+import com.emedinaa.kotlinapp.chef.ChefFragment
 import com.emedinaa.kotlinapp.dish.DishFragment
 import com.emedinaa.kotlinapp.home.HomeFragment
 import com.emedinaa.kotlinapp.order.OrderFragment

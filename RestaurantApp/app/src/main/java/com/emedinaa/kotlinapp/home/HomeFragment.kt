@@ -7,8 +7,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.emedinaa.kotlinapp.R
+import com.emedinaa.kotlinapp.model.Category
+import kotlinx.android.synthetic.main.fragment_home.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -45,5 +48,21 @@ class HomeFragment : Fragment() {
 
     override fun onDetach() {
         super.onDetach()
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        //ui
+        recyclerViewCategories.layoutManager= LinearLayoutManager(activity)
+
+        //mock data
+        val categoryList:MutableList<Category> = mutableListOf()
+        categoryList.add(Category(1,"Entradas"))
+        categoryList.add(Category(2,"Segundos"))
+        categoryList.add(Category(3,"Sopas"))
+        categoryList.add(Category(4,"Postres"))
+        categoryList.add(Category(5,"Vinos"))
+
+        recyclerViewCategories.adapter = CategoryAdapter(categoryList.toList())
     }
 }

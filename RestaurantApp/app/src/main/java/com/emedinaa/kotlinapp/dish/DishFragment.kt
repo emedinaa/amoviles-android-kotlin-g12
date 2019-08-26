@@ -6,8 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.emedinaa.kotlinapp.R
+import com.emedinaa.kotlinapp.model.Dish
+import kotlinx.android.synthetic.main.fragment_dish.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,6 +27,8 @@ class DishFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var dishList:List<Dish> = emptyList()
+    private lateinit var adapter:DishAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +46,48 @@ class DishFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_dish, container, false)
     }
 
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        recyclerViewDish.layoutManager= LinearLayoutManager(activity)
+        adapter= DishAdapter(dishList)
+        recyclerViewDish.adapter= adapter
+        retrieveDishes()
+    }
+
+    private fun retrieveDishes(){
+        /*
+         {
+              "imagen": "",
+              "_id": "5b6dfd6ea56c974f54fa09a2",
+              "categoria_id": {
+                "_id": "5b65cbffd4bb18056bc107b0",
+                "nombre": "Plato de fondo",
+                "descripcion": "Segunda categoria"
+              },
+              "nombre": "Lomo Saltado",
+              "precio": 21
+            },
+            {
+              "imagen": "",
+              "_id": "5b6e047ba284ba50ee72fb57",
+              "categoria_id": {
+                "_id": "5b65cbffd4bb18056bc107b0",
+                "nombre": "Plato de fondo",
+                "descripcion": "Segunda categoria"
+              },
+              "nombre": "Lomo Saltado3",
+              "precio": 23
+            }
+         */
+
+        //mock data
+        val mockData = mutableListOf<Dish>()
+        mockData.add(Dish(100,1,"Lomo Saltado","Segunda categoria",23.0,""))
+        mockData.add(Dish(100,1,"Arroz Chaufa","Segunda categoria",18.0,""))
+        dishList= mockData.toList()
+        adapter.update(dishList)
+    }
 
     companion object {
         /**
