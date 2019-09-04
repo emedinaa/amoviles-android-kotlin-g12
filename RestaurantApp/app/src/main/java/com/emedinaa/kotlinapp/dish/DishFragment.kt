@@ -83,8 +83,8 @@ class DishFragment : Fragment() {
 
         //mock data
         val mockData = mutableListOf<Dish>()
-        mockData.add(Dish(100,1,"Lomo Saltado","Segunda categoria",23.0,""))
-        mockData.add(Dish(100,1,"Arroz Chaufa","Segunda categoria",18.0,""))
+        mockData.add(Dish("100","1","Lomo Saltado","20.0","Segunda categoria",""))
+        mockData.add(Dish("101","1","Arroz Chaufa","15.0","Segunda categoria",""))
         dishList= mockData.toList()
         adapter.update(dishList)
     }

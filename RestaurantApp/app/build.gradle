@@ -41,4 +41,11 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
 
     implementation project(':core')
+
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit2"
+    implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.gson"
+
+    //INTERCEPTOR
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttp3"
 }

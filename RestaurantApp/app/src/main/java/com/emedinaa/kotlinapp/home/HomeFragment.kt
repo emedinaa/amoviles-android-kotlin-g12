@@ -57,11 +57,11 @@ class HomeFragment : Fragment() {
 
         //mock data
         val categoryList:MutableList<Category> = mutableListOf()
-        categoryList.add(Category(1,"Entradas"))
-        categoryList.add(Category(2,"Segundos"))
-        categoryList.add(Category(3,"Sopas"))
-        categoryList.add(Category(4,"Postres"))
-        categoryList.add(Category(5,"Vinos"))
+        categoryList.add(Category("1","Entradas",""))
+        categoryList.add(Category("2","Segundos",""))
+        categoryList.add(Category("3","Sopas",""))
+        categoryList.add(Category("4","Postres",""))
+        categoryList.add(Category("5","Vinos",""))
 
         recyclerViewCategories.adapter = CategoryAdapter(categoryList.toList())
     }

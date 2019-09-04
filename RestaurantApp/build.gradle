@@ -47,4 +47,10 @@ ext {
     roomVersion = "2.0.0"
     materialVersion = "1.0.0"
     cardViewVersion = "1.0.0"
+
+
+    gsonVersion='2.8.0'
+    retrofit2='2.3.0'
+    gson='2.3.0'
+    okhttp3='3.4.1'
 }
