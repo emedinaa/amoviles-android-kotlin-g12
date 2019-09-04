@@ -6,7 +6,7 @@ Curso de Aplicaciones Android con Kotlin G12(Básico - Intermedio- Avanzado) - A
 
 Slides :
 
-Architecture https://docs.google.com/presentation/d/10JqHsaHvIDduFdQI5WAINKSckrJteHLMwTDve2aOz-Y/edit?usp=sharing
+Architecture https://docs.google.com/presentation/d/1kGwGi3FDe9aHpEPjgj0mKoq3fG-hQ5JMQTX7IQGUXWM/edit?usp=sharing
 
 Lesson https://github.com/emedinaa/amoviles-android-kotlin-g12/archive/L13-RuntimePermissions.zip
 
