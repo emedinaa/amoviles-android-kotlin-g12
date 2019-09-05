@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.emedinaa.kotlinapp.R
+import com.emedinaa.kotlinapp.data.DataCallback
+import com.emedinaa.kotlinapp.data.DataInjector
 import com.emedinaa.kotlinapp.model.Category
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -27,7 +29,8 @@ private const val ARG_PARAM2 = "param2"
  */
 class HomeFragment : Fragment() {
     //private var listener: OnFragmentInteractionListener? = null
-
+    private var repository:CategoriesRepository = DataInjector.provideCategoriesRepository()
+    private lateinit var adapter:CategoryAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -56,13 +59,27 @@ class HomeFragment : Fragment() {
         recyclerViewCategories.layoutManager= LinearLayoutManager(activity)
 
         //mock data
-        val categoryList:MutableList<Category> = mutableListOf()
+        /*val categoryList:MutableList<Category> = mutableListOf()
         categoryList.add(Category("1","Entradas",""))
         categoryList.add(Category("2","Segundos",""))
         categoryList.add(Category("3","Sopas",""))
         categoryList.add(Category("4","Postres",""))
-        categoryList.add(Category("5","Vinos",""))
+        categoryList.add(Category("5","Vinos",""))*/
+        adapter= CategoryAdapter(emptyList())
+        recyclerViewCategories.adapter = adapter
 
-        recyclerViewCategories.adapter = CategoryAdapter(categoryList.toList())
+        retrieveCategories()
+    }
+
+    private fun retrieveCategories(){
+        repository.retrieveCategories(object :DataCallback<List<Category>>{
+            override fun onError(errorMessage: String, exception: Exception) {
+
+            }
+
+            override fun onSuccess(data: List<Category>) {
+                adapter.update(data)
+            }
+        })
     }
 }

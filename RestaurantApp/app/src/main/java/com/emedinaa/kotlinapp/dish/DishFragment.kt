@@ -9,6 +9,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.emedinaa.kotlinapp.R
+import com.emedinaa.kotlinapp.data.DataCallback
+import com.emedinaa.kotlinapp.data.DataInjector
+import com.emedinaa.kotlinapp.home.CategoriesRepository
 import com.emedinaa.kotlinapp.model.Dish
 import kotlinx.android.synthetic.main.fragment_dish.*
 
@@ -29,6 +32,7 @@ class DishFragment : Fragment() {
     private var param2: String? = null
     private var dishList:List<Dish> = emptyList()
     private lateinit var adapter:DishAdapter
+    private var repository: DishesRepository = DataInjector.provideDishesRepository()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,11 +86,20 @@ class DishFragment : Fragment() {
          */
 
         //mock data
-        val mockData = mutableListOf<Dish>()
+        /*val mockData = mutableListOf<Dish>()
         mockData.add(Dish("100","1","Lomo Saltado","20.0","Segunda categoria",""))
         mockData.add(Dish("101","1","Arroz Chaufa","15.0","Segunda categoria",""))
         dishList= mockData.toList()
-        adapter.update(dishList)
+        adapter.update(dishList)*/
+        repository.retrieveDishes(object :DataCallback<List<Dish>>{
+            override fun onError(errorMessage: String, exception: Exception) {
+
+            }
+
+            override fun onSuccess(data: List<Dish>) {
+                adapter.update(data)
+            }
+        })
     }
 
     companion object {

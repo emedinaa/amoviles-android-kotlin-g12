@@ -8,7 +8,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
 
 class ApiClient {
-    private val API_BASE_URL = "https://blooming-sierra-86800.herokuapp.com"
+    //private val API_BASE_URL = "https://blooming-sierra-86800.herokuapp.com"
+    private val API_BASE_URL = "https://diplomado-restaurant-backend.herokuapp.com/"
     private lateinit var servicesApiInterface:ServicesApiInterface
 
 

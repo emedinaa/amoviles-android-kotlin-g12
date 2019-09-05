@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.emedinaa.kotlinapp.model.Category
 import com.emedinaa.kotlinapp.R
 
-class CategoryAdapter(val categoryList:List<Category>):RecyclerView.Adapter<CategoryAdapter.Companion.ViewHolder>(){
+class CategoryAdapter(var categoryList:List<Category>):RecyclerView.Adapter<CategoryAdapter.Companion.ViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view= LayoutInflater.from(parent?.context)
@@ -22,6 +22,11 @@ class CategoryAdapter(val categoryList:List<Category>):RecyclerView.Adapter<Cate
     }
 
     override fun getItemCount(): Int = categoryList.size
+
+    fun update(mCategoryList: List<Category>){
+        this.categoryList= mCategoryList
+        notifyDataSetChanged()
+    }
 
     companion object {
         class ViewHolder(v:View ):RecyclerView.ViewHolder(v){
