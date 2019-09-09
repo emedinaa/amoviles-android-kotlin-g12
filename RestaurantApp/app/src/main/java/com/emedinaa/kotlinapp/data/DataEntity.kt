@@ -4,7 +4,7 @@ import com.emedinaa.kotlinapp.model.Category
 import com.emedinaa.kotlinapp.model.Dish
 import com.emedinaa.kotlinapp.model.User
 
-data class LogInRaw(val username:String?,val password:String?)
+data class LogInRaw(val email:String?,val password:String?)
 
 open class BaseResponse(val status:Int?,val message:String?){
     companion object {

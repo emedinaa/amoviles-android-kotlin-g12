@@ -45,7 +45,7 @@ ext {
     junitVersion = '4.12'
 
     roomVersion = "2.0.0"
-    materialVersion = "1.0.0"
+    materialVersion = "1.1.0-alpha07"//"1.0.0-rc01"//"1.0.0" https://github.com/material-components/material-components-android/releases
     cardViewVersion = "1.0.0"
 
 
@@ -53,4 +53,5 @@ ext {
     retrofit2='2.3.0'
     gson='2.3.0'
     okhttp3='3.4.1'
+    socketio='1.0.0'//‘io.socket:socket.io-client:1.0.0' https://mvnrepository.com/artifact/io.socket/socket.io-client/1.0.0
 }

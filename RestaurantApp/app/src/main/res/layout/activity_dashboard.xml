@@ -7,12 +7,15 @@
         android:layout_height="match_parent"
         tools:context=".ui.DashboardActivity">
 
+    <!--      app:itemRippleColor="@android:color/white"
+       android:background="@color/colorPrimary"-->
     <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigationView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
             app:itemIconTint="@android:color/white"
+            app:itemRippleColor="@android:color/white"
+            android:background="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"

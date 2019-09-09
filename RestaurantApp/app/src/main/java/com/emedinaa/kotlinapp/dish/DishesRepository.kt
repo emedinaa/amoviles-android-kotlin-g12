@@ -26,4 +26,22 @@ class DishesRepository(apiClient: ApiClient.ServicesApiInterface):
             }
         })
     }
+
+    fun retrieveDishesByCategory(idCategory:String,callback: DataCallback<List<Dish>>){
+        currentCall= apiClient.dishesByCategory(idCategory)
+
+        currentCall?.enqueue(object: Callback<DishesResponse> {
+            override fun onFailure(call: Call<DishesResponse>, t: Throwable) {
+                processFailure(call,t,callback)
+            }
+
+            override fun onResponse(call: Call<DishesResponse>, response: Response<DishesResponse>) {
+                if(response.isSuccessful){
+                    response.body()?.data?.let {
+                        callback.onSuccess(it)
+                    }
+                }
+            }
+        })
+    }
 }

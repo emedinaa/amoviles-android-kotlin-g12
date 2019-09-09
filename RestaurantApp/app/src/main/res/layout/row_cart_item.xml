@@ -7,7 +7,7 @@
     android:orientation="horizontal"
     android:background="@android:color/white"
     android:weightSum="1">
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textViewAmount"
         android:layout_width="0dp"
         android:layout_weight="0.1"
@@ -19,7 +19,7 @@
         android:layout_width="1dp"
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"/>
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textViewName"
         android:layout_width="0dp"
         android:layout_weight="0.5"
@@ -31,24 +31,26 @@
         android:layout_width="1dp"
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"/>
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textViewPrice"
         android:layout_width="0dp"
         android:layout_weight="0.2"
         android:layout_height="wrap_content"
+            android:padding="4dp"
         android:textColor="@android:color/black"
-        android:gravity="center"
+        android:gravity="center_vertical|right"
         tools:text="S/.14.50"/>
     <View
         android:layout_width="1dp"
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"/>
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textViewTotal"
         android:layout_width="0dp"
         android:layout_weight="0.2"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
-        android:gravity="center"
+            android:padding="4dp"
+        android:gravity="center_vertical|right"
         tools:text="S/.14.50"/>
 </LinearLayout>

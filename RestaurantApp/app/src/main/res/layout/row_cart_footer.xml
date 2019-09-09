@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:background="@android:color/white"
     android:padding="10dp"
     android:gravity="right">
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
@@ -15,13 +17,15 @@
         android:gravity="center"
         android:text="Total"/>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textViewTotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/colorPrimary"
-        android:gravity="center"
-        android:padding="8dp"
-        android:hint="S/. 20.00"/>
+        android:gravity="right|center_vertical"
+        android:paddingLeft="8dp"
+            android:paddingRight="4dp"
+            android:textSize="16sp"
+        tools:text="S/. 20.00"/>
 
 </LinearLayout>

@@ -62,5 +62,8 @@ class ApiClient {
         @GET("/api/categorias")
         fun categoriesWT(@Header("Authorization") authorization:String) :Call<CategoriesResponse>
 
+        @GET("/platos/categoria/{idCategory}")
+        fun dishesByCategory(@Path("idCategory") idCategory:String):Call<DishesResponse>
+
     }
 }

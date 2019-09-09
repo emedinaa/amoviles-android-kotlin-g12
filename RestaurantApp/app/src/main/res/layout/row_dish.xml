@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.675"
-        app:srcCompat="@drawable/ic_dish"/>
+        tools:srcCompat="@drawable/ic_dish"/>
 
     <TextView
         android:id="@+id/textViewTitle"

@@ -1,6 +1,7 @@
 package com.emedinaa.kotlinapp.dish
 
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,8 +12,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.emedinaa.kotlinapp.R
 import com.emedinaa.kotlinapp.data.DataCallback
 import com.emedinaa.kotlinapp.data.DataInjector
-import com.emedinaa.kotlinapp.home.CategoriesRepository
 import com.emedinaa.kotlinapp.model.Dish
+import com.emedinaa.kotlinapp.ui.RecyclerClickListener
+import com.emedinaa.kotlinapp.ui.RecyclerTouchListener
+import com.emedinaa.kotlinapp.util.PicassoImageLoader
 import kotlinx.android.synthetic.main.fragment_dish.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -54,8 +57,24 @@ class DishFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         recyclerViewDish.layoutManager= LinearLayoutManager(activity)
-        adapter= DishAdapter(dishList)
+        recyclerViewDish.setHasFixedSize(false)
+        adapter= DishAdapter(dishList,PicassoImageLoader())
         recyclerViewDish.adapter= adapter
+
+        context?.let {
+            recyclerViewDish.addOnItemTouchListener(RecyclerTouchListener(it,recyclerViewDish,
+                object :RecyclerClickListener{
+                    override fun onClick(view: View, position: Int) {
+                        val dish:Dish= dishList[position]
+                        goToDetail(dish)
+                    }
+
+                    override fun onLongClick(view: View, position: Int) {
+
+                    }
+                }))
+        }
+
         retrieveDishes()
     }
 
@@ -97,11 +116,20 @@ class DishFragment : Fragment() {
             }
 
             override fun onSuccess(data: List<Dish>) {
-                adapter.update(data)
+                dishList= data
+                adapter.update(dishList)
             }
         })
     }
 
+    private fun goToDetail(dish:Dish){
+        val intent= Intent(activity,DishDetailActivity::class.java)
+        val bundle= Bundle()
+            bundle.putSerializable("DISH",dish)
+        intent.putExtras(bundle)
+
+        startActivity(intent)
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of

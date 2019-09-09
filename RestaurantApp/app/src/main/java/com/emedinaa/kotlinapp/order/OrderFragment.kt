@@ -6,8 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.emedinaa.kotlinapp.R
+import com.emedinaa.kotlinapp.data.Cart
+import com.emedinaa.kotlinapp.model.Order
+import kotlinx.android.synthetic.main.fragment_order.*
+import com.emedinaa.kotlinapp.model.OrderViewFooter
+import com.emedinaa.kotlinapp.model.OrderViewHeader
+import com.emedinaa.kotlinapp.model.OrderViewType
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,6 +33,7 @@ class OrderFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var orderAdapter: OrderAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +51,44 @@ class OrderFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_order, container, false)
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        recyclerViewOrder.layoutManager = LinearLayoutManager(activity)
+        orderAdapter= OrderAdapter(emptyList())
+        recyclerViewOrder.adapter= orderAdapter
 
+        textOrder.setOnClickListener {
+            if (!Cart.isEmpty()) {
+                sendOrder()
+            } else {
+                //cart empty
+                Toast.makeText(getContext(), "Carrito vacío", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        renderOrder()
+    }
+
+    private fun renderOrder() {
+        if (Cart.getItems() == null) return
+
+        val total = Cart.total()
+        val tmp = mutableListOf<OrderViewType>()
+        tmp.add(OrderViewHeader())
+        tmp.addAll(Cart.getItems())
+        tmp.add(OrderViewFooter(total))
+
+        orderAdapter.update(tmp)
+    }
+
+    private fun sendOrder() {
+
+    }
+
+    private fun clearCart(){
+        Cart.clear()
+        renderOrder()
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of
