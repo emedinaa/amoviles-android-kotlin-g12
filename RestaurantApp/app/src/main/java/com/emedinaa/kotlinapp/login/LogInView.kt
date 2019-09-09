@@ -9,17 +9,44 @@ import com.emedinaa.kotlinapp.R
 import com.emedinaa.kotlinapp.data.DataCallback
 import com.emedinaa.kotlinapp.data.DataInjector
 import com.emedinaa.kotlinapp.model.User
+import com.emedinaa.kotlinapp.socket.SocketManager
+import io.socket.client.Socket
 import kotlinx.android.synthetic.main.layout_loading.view.*
 import kotlinx.android.synthetic.main.layout_login_session.view.*
 import kotlinx.android.synthetic.main.layout_login_view.view.*
+import io.socket.emitter.Emitter
+import android.util.Log
+import com.emedinaa.kotlinapp.data.PreferencesHelper
+import com.emedinaa.kotlinapp.socket.SocketConstant
+import io.socket.client.Ack
+import org.json.JSONException
+import org.json.JSONObject
+import com.emedinaa.kotlinapp.data.Cart
+import com.emedinaa.kotlinapp.socket.SocketMapper
+
 
 class LogInView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr){
 
-    private  var logInRepository: LogInRepository=DataInjector.provideLogInRepository()
+    private var logInRepository: LogInRepository=DataInjector.provideLogInRepository()
+    private var socket: Socket?=null
+    private var socketManager: SocketManager=DataInjector.provideSocketManager()
+    private var user:User?=null
+
+    private val onConnect = Emitter.Listener { args ->
+        Log.v("CONSOLE", "onConnect $args")
+        socketLogIn()
+    }
+
+    private val onLogIn = Emitter.Listener { args ->
+        Log.v("CONSOLE", "onLogIn $args")
+    }
+
     init {
-        addView(View.inflate(context, R.layout.layout_login_view,null))
+        socket= socketManager.socket()
+
+        addView(View.inflate(context,R.layout.layout_login_view,null))
         addView(View.inflate(context, R.layout.layout_login_session,null))
         addView(View.inflate(context, R.layout.layout_loading,null))
 
@@ -34,6 +61,8 @@ class LogInView @JvmOverloads constructor(
         btnLogOut.setOnClickListener {
             showLogInView()
         }
+
+        checkSession()
     }
 
     private fun logIn(){
@@ -49,8 +78,8 @@ class LogInView @JvmOverloads constructor(
 
             override fun onSuccess(data: User) {
                 hideLoadingView()
-                textViewEmail.text= data.username
-                showLogInViewSession()
+                user= data
+                startSocket()
             }
         })
     }
@@ -75,5 +104,78 @@ class LogInView @JvmOverloads constructor(
 
     private fun hideLoadingView(){
         layoutLoading.visibility= View.GONE
+    }
+
+    private fun startSocket(){
+        socket?.on(Socket.EVENT_CONNECT,onConnect)
+        socket?.connect()
+    }
+
+    private fun socketLogIn(){
+        socket?.on(SocketConstant.EMIT_LOGIN,onLogIn)
+
+        Log.v("CONSOLE","socket "+socket?.connected() +" user "+user );
+        if(socket?.connected()==true && user!=null) {
+            // Sending an object
+            val obj =  JSONObject()
+            try {
+                obj.put("user_id", user?.id)
+            } catch (e:JSONException) {
+                e.printStackTrace()
+            }
+
+            socket?.emit(SocketConstant.EMIT_LOGIN,obj,object :Ack{
+                override fun call(vararg args: Any?) {
+                    Log.v("CONSOLE", "EMIT LogIn $args")
+
+                    val data = args[0] as JSONObject
+                    val socketResponse = SocketMapper().convert(data)
+                    Log.v("CONSOLE", "EMIT LogIn $socketResponse")
+                    if (socketResponse.success) {
+                        saveSession()
+                        Cart.createOrder(user?.id?:"-1")
+                        post {
+                            textViewEmail.text= user?.username
+                            showLogInViewSession()
+                        }
+                    } else {
+                        post {
+                            showMessage("Ocurrió un error : " + socketResponse.message)
+                        }
+                    }
+                }
+            })
+        }
+
+    }
+
+    private fun showMessage(message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+    }
+
+    private fun checkSession(){
+        user= PreferencesHelper.session(context)
+        user?.let {
+            Log.v("CONSOLE","user $it")
+            if(!socketManager.isConnected()){
+                startSocket()
+            }else{
+                showLogInView()
+            }
+
+        }?:run {
+            logOut()
+        }
+    }
+
+    private fun logOut(){
+        PreferencesHelper.signOut(context)
+        socketManager.clearSession()
+    }
+
+    private fun saveSession() {
+        user?.let {
+            PreferencesHelper.saveUser(context, it)
+        }
     }
 }

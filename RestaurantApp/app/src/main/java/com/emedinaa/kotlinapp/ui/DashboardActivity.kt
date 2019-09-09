@@ -14,7 +14,7 @@ import com.emedinaa.kotlinapp.home.HomeFragment
 import com.emedinaa.kotlinapp.order.OrderFragment
 import kotlinx.android.synthetic.main.activity_dashboard.*
 
-class DashboardActivity : AppCompatActivity() {
+class DashboardActivity : AppCompatActivity() ,SimpleDialog.SimpleDialogListener{
 
     private val homeFragment= HomeFragment()
     private val dishFragment= DishFragment()
@@ -78,8 +78,13 @@ class DashboardActivity : AppCompatActivity() {
     }
 
     private var notificationObserver= Observer<Int>{
-       bottomNavigationView.showBadge(R.id.action_orders).apply {
+      /* bottomNavigationView.showBadge(R.id.action_orders).apply {
            number= it
-       }
+       }*/
+        showNotification(it)
+    }
+
+    override fun onAction() {
+        dashboardViewModel.orderAction.postValue(true)
     }
 }

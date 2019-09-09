@@ -11,11 +11,23 @@ import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.emedinaa.kotlinapp.R
 import com.emedinaa.kotlinapp.data.Cart
-import com.emedinaa.kotlinapp.model.Order
+import com.emedinaa.kotlinapp.data.DataInjector
 import kotlinx.android.synthetic.main.fragment_order.*
 import com.emedinaa.kotlinapp.model.OrderViewFooter
 import com.emedinaa.kotlinapp.model.OrderViewHeader
 import com.emedinaa.kotlinapp.model.OrderViewType
+import com.emedinaa.kotlinapp.socket.SocketConstant
+import com.emedinaa.kotlinapp.socket.SocketManager
+import io.socket.client.Ack
+import io.socket.client.Socket
+import com.emedinaa.kotlinapp.socket.SocketMapper
+import android.util.Log
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import com.emedinaa.kotlinapp.ui.DashboardViewModel
+import org.json.JSONObject
+import com.emedinaa.kotlinapp.ui.SimpleDialog
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -34,6 +46,10 @@ class OrderFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var orderAdapter: OrderAdapter
+    private lateinit var socketManager: SocketManager
+    private  var socket:Socket?=null
+
+    private lateinit var dashboardViewModel: DashboardViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +57,7 @@ class OrderFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+        socketManager= DataInjector.provideSocketManager()
     }
 
     override fun onCreateView(
@@ -48,11 +65,22 @@ class OrderFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_order, container, false)
+        return inflater.inflate(com.emedinaa.kotlinapp.R.layout.fragment_order, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        socket= socketManager.socket()
+        activity?.let {
+            dashboardViewModel= ViewModelProviders.of(it).get(DashboardViewModel::class.java)
+            dashboardViewModel?.orderAction.observe(this,object :Observer<Boolean>{
+                override fun onChanged(t: Boolean?) {
+                    if(t!=null && t){
+                        clearCart()
+                    }
+                }
+            })
+        }
         recyclerViewOrder.layoutManager = LinearLayoutManager(activity)
         orderAdapter= OrderAdapter(emptyList())
         recyclerViewOrder.adapter= orderAdapter
@@ -82,12 +110,47 @@ class OrderFragment : Fragment() {
     }
 
     private fun sendOrder() {
-
+        if(socketManager.isConnected()){
+            val jsonObject= Cart.makeOrder()
+            socket?.emit(SocketConstant.EMIT_ORDER, jsonObject,object:Ack{
+                override fun call(vararg args: Any?) {
+                    val data = args[0] as JSONObject
+                    val socketResponse = SocketMapper().convert(data)
+                    Log.v("CONSOLE", "sendOrder $socketResponse")
+                    if (socketResponse.success) {
+                        activity?.runOnUiThread(object : Runnable {
+                            override fun run() {
+                                onSuccess()
+                            }
+                        })
+                    } else {
+                        activity?.runOnUiThread { }
+                    }
+                }
+            })
+        }
     }
 
+    private fun onSuccess() {
+        Toast.makeText(
+            context, "Se envió el pedido correctamente",
+            Toast.LENGTH_LONG
+        ).show()
+
+        activity?.let {
+            val bundle = Bundle()
+            bundle.putString("TITLE", "MyRestaurant")
+            bundle.putString("MESSAGE", "Orden enviada correctamente")
+            val simpleDialog = SimpleDialog()
+            simpleDialog.arguments=bundle
+            simpleDialog.show(it.supportFragmentManager, "SimpleDialog")
+        }
+    }
     private fun clearCart(){
         Cart.clear()
         renderOrder()
+        dashboardViewModel.orderAction.postValue(false)
+        dashboardViewModel.cartNotification.postValue(0)
     }
     companion object {
         /**
