@@ -216,7 +216,7 @@ Firma manual
     ./gradlew installDebug
 ```
 
-![img](screenshots/output_debug.png)
+![img](GooglePlay/screenshots/output_debug.png)
 
 
 **Google Play**
