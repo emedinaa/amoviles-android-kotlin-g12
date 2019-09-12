@@ -186,27 +186,27 @@ Firma manual
 
 - Generar una APK firmada
 
-![img](screenshots/generate_apk1.png)
+![img](GooglePlay/screenshots/generate_apk1.png)
 
-![img](screenshots/generate_apk2.png)
+![img](GooglePlay/screenshots/generate_apk2.png)
 
-![img](screenshots/generate_apk3.png)
+![img](GooglePlay/screenshots/generate_apk3.png)
 
 - Crear credenciales
 
-![img](screenshots/generate_apk4.png)
+![img](GooglePlay/screenshots/generate_apk4.png)
 
-![img](screenshots/generate_apk5.png)
+![img](GooglePlay/screenshots/generate_apk5.png)
 
-![img](images/generate_apk5-1.png)
+![img](GooglePlay/screenshots/generate_apk5-1.png)
 
 - Crear APK
 
-![img](screenshots/generate_apk6.png)
+![img](GooglePlay/screenshots/generate_apk6.png)
 
-![img](screenshots/generate_apk7.png)
+![img](GooglePlay/screenshots/generate_apk7.png)
 
-![img](screenshots/output_release.png)
+![img](GooglePlay/screenshots/output_release.png)
 
 - Comandos
 
