@@ -2,11 +2,9 @@
 Curso de Aplicaciones Android con Kotlin G12(Básico - Intermedio- Avanzado) - Academia Móviles 
 
 
-## Kotlin Fundamentals
+## Fundamentos del desarrollo de Aplicaciones Android
 
 Slide https://docs.google.com/presentation/d/1AsYR8CfSQprW0SP5S-19kuREeD88_F8yB-quibEo3DM/edit?usp=sharing
-
-Lesson https://github.com/emedinaa/amoviles-android-kotlin-g12/archive/L1-Fundamentals.zip
 
 ## Kotlin Language
 
